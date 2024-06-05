@@ -18,11 +18,18 @@ from django.contrib import admin
 from django.urls import path
 from uberlike.views import *
 from user_accounts.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home,name="home"),
-    path('login/',login,name="login1"),
-    
+    path('login/',signup,name="login"),
+    path('logout',logout,name="logout"),
+    path('profile',profile,name="profile"),
+    path('detail/<slug:slug>',detail,name="detail"),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+

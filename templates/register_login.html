@@ -42,7 +42,7 @@
         .form-container{
             
             width: 437px;
-            height: 950px;
+            height: 1067px;
             position: relative;
             text-align: center;
             padding: 10px 0;
@@ -100,6 +100,38 @@
         margin-top: 8px;
         transform: translateX(150px);
         transition: transform 1s;
+        }
+        .error {
+            color:red;
+            display: none;
+            background-color: #d4edda;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: center;
+            position:relative;
+            margin-bottom: 10px;
+            }
+        .success {
+            
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            }
+
+        
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            border: none;
         }
         
 
@@ -278,8 +310,14 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div><br>
         <!-- End page header -->
+        
+        {% if messages %}
+        {% for message in messages %}
+        <div id="successMessage" class="{{message.tags}}">{{message}}<span class="close-btn" onclick="clearMessage(this)">X</span></div>
+        {% endfor %}
+        {% endif %}
 
                 <!-- register-area -->
         <div class="register-area" style="background-color: rgb(249, 249, 249);">
@@ -295,36 +333,40 @@
                                     <div class="col-4">
                                         <div class="form-container">
                                             <div class="form-btn">
-                                                <span onclick="plogin()">PASSENGER LOGIN</span>
-                                                <span onclick="vlogin()">VEHICLE LOGIN</span>
+                                                <span onclick="plogin()">PASSENGER SIGNUP</span>
+                                                <span onclick="vlogin()">VEHICLE SIGNUP</span>
                                                 <hr id="Indicator">
                                             </div>
 
                                             <form action="" method="post" id="login2">
                                                 {% csrf_token %}
                                                 <div class="form-group">
-                                                    <label for="name">Name</label>
-                                                    <input type="text" class="form-control" id="name" name="name">
+                                                    <label for="fname">First Name</label>
+                                                    <input type="text" class="form-control" id="fname" name="fname" title="IF YOU ARE A vehicle owner plz select OWNER OPTION FROM SELECT LOGIN">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="lname">Last Name</label>
+                                                    <input type="text" class="form-control" id="lname" name="lname" title="IF YOU ARE A vehicle owner plz select OWNER OPTION FROM SELECT LOGIN">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="email">Email</label>
-                                                    <input type="text" class="form-control" id="email" name="email">
+                                                    <input type="email" class="form-control" id="email" name="email">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="password">Address</label>
-                                                    <input type="password" class="form-control" id="password" name="address">
+                                                    <label for="Address">Address</label>
+                                                    <input type="text" class="form-control" id="Address" name="address" placeholder="Village,Post-office,District,State">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="password">PhoneNumber</label>
-                                                    <input type="password" class="form-control" name="phonenumber" id="password">
+                                                    <label for="PhoneNumber">PhoneNumber</label>
+                                                    <input type="tel" class="form-control" name="phonenumber" id="PhoneNumber">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="password">Stand Name</label>
-                                                    <input type="password" class="form-control" id="password" name="stndname">
+                                                    <label for="stndname">Stand Name</label>
+                                                    <input type="text" class="form-control" id="stndname" name="stndname">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="password">vehicle Number</label>
-                                                    <input type="password" class="form-control" id="password" name="vnumber">
+                                                    <label for="vnumber">vehicle Number</label>
+                                                    <input type="text" class="form-control" id="vnumber" name="vnumber">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="password">Password</label>
@@ -334,6 +376,13 @@
                                                     <label for="password">Confirm Password</label>
                                                     <input type="password" class="form-control" id="password" name="pass2">
                                                 </div>
+                                                {% if messages and not register %}
+                                                {% if not pswd %}
+                                                {% for message in messages %}
+                                                <div id="successMessage" class="{{message.tags}}">{{message}}</div>
+                                                {% endfor %}
+                                                {% endif%}
+                                                {% endif %}
                                                 <div class="text-center">
                                                     <button type="submit" class="btn btn-default" name="vlogin">Register</button>
                                                 </div>
@@ -342,20 +391,24 @@
                                             <form action="" method="post" id="login1">
                                                 {% csrf_token %}
                                                 <div class="form-group">
-                                                    <label for="name">Name</label>
-                                                    <input type="text" class="form-control" id="name" name="name" title="IF YOU ARE A vehicle owner plz select OWNER OPTION FROM SELECT LOGIN">
+                                                    <label for="fname">First Name</label>
+                                                    <input type="text" class="form-control" id="fname" name="fname" title="IF YOU ARE A vehicle owner plz select OWNER OPTION FROM SELECT LOGIN">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="lname">Last Name</label>
+                                                    <input type="text" class="form-control" id="lname" name="lname" title="IF YOU ARE A vehicle owner plz select OWNER OPTION FROM SELECT LOGIN">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="email">Email</label>
-                                                    <input type="text" class="form-control" name="email" id="email">
+                                                    <input type="email" class="form-control" name="email" id="email">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="password">Address</label>
-                                                    <input type="password" class="form-control" name="address" id="password">
+                                                    <label for="address">Address</label>
+                                                    <input type="text" class="form-control" name="address" id="address" placeholder="Home name,Village,Post-office,District,State">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="password">PhoneNumber</label>
-                                                    <input type="password" class="form-control" name="phonenumber" id="password">
+                                                    <label for="PhoneNumber">PhoneNumber</label>
+                                                    <input type="tel" class="form-control" name="phonenumber" id="PhoneNumber">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="password">Password</label>
@@ -365,6 +418,13 @@
                                                     <label for="password">Confirm Password</label>
                                                     <input type="password" class="form-control" id="password"  name="paswd2">
                                                 </div>
+                                                {% if messages and not register %}
+                                                {% if pswd %}
+                                                {% for msg in messages %}
+                                                <div class="{{msg.tags}}">{{msg}}</div>
+                                                {% endfor %}
+                                                {% endif %}
+                                                {% endif %}
                                                 <div class="text-center">
                                                     <button type="submit" class="btn btn-default" name="plogin">Register</button>
                                                 </div>
@@ -383,17 +443,20 @@
                     <div class="box-for overflow">                         
                         <div class="col-md-12 col-xs-12 login-blocks">
                             <h2>Login : </h2> 
-                            <form action="" method="post">
+                            <form action="" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email">
+                                    <label for="email">username</label>
+                                    <input type="text" class="form-control" id="email" name="name" placeholder="First Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password">
+                                    <input type="password" class="form-control" id="password" name="pass">
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-default"> Log in</button>
+                                    
+                                    <button type="submit" class="btn btn-default" name="login"> Log in</button>
+                                    
                                 </div>
                             </form>
                             <br>
@@ -409,6 +472,7 @@
                         
                     </div>
                 </div>
+                
 
             </div>
         </div>      
@@ -584,10 +648,42 @@
                 VLoginForm.style.transform = "translatex(450px)";
                 PLoginForm.style.transform = "translatex(0px)";
                 Indicator.style.transform = "translate(50px)";
-                PLoginForm.style.transform = "translatey(-860px)";
+                PLoginForm.style.transform = "translatey(-960px)";
                 
             }
+
+            
+            
         </script>
+        
+        <script>
+                function myFunction() {
+                    alert("You are successfully loged in.");
+                    }
+        </script> 
+        
+        <script>
+            function clearMessage(element) {
+                element.parentNode.style.display = 'none';
+            }
+        </script>
+        
+        <script>
+            // This script will display the success message after login
+            // You can trigger this script after successful login from your backend
+        
+            // For demonstration purposes, let's say login is successful
+            // You can replace this with actual login logic
+            const loginSuccessful = true;
+        
+            if (loginSuccessful) {
+                const successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'block';
+            }
+        </script>
+        
+        
+
 
     </body>
 </html>

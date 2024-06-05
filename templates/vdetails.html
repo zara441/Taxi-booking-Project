@@ -1,0 +1,847 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Website - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Responsive Sidebar Menu HTML CSS | CodingNepal</title>
+    <link rel="stylesheet" href="{% static 'sidebar/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'front-end/assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'front-end/bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'front-end/assets/css/popup.css' %}">
+
+    <!-- Boxicons CDN Link -->
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body{
+          display: flex;
+          margin:0;
+          padding:0;
+          font-family: "Roboto" ,sans-serif; 
+      }
+    
+      .content-container{
+        width:100%;
+        height: 250px;
+        background-color: rgb(138, 207, 226);
+        color:var(--clr-dark);
+        /* display:flex; */
+        gap:0;
+      }
+     
+      .img-1{
+          height: 0;
+          width: 0;
+          padding-top: 0px;
+          padding-left: 0px;
+          visibility: hidden;
+      } 
+      .open-img{
+        height: 70px;
+        width:70px;
+        border-radius: 100%;
+        padding-top: 10px;
+        padding-left: 8px;
+        box-shadow: 2px 3px rgb(46, 173, 219);
+        visibility: visible;
+      }
+      .hide{
+        visibility: hidden;
+      }
+      .line{
+          width:80px;
+          height:5px;
+          background: var(--clr-light);
+          margin-top: 40px;
+      }
+      .line-blue{
+        background: var(--clr-blue);
+      }
+      .scroll-info-1{
+          width:100%;
+          height: 250px;
+          background-color: rgb(138, 207, 226);
+          color:var(--clr-dark);
+          display:flex;
+          gap:50px;
+          padding: 5px;
+      }
+      .scroll-info-1 img{
+          width: 600px;
+          height: 600px;
+          padding: 20px 20px;
+      }
+      .close-info{
+        width: 0;
+        height: 0;
+        visibility:hidden; 
+      }
+      .close-img{
+        padding:0;
+        width:0;
+        height:0;
+        visibility:hidden;
+      }
+      .scroll-info-2{
+          width: 0;
+          height: 0;
+          visibility: hidden;
+      }
+      .open-location{
+        width:100%;
+        height: 250px;
+        background-color: rgb(138, 207, 226);
+        color:var(--clr-dark);
+        gap:30px; 
+        overflow: hidden;
+        padding:10px;
+        visibility: visible;
+      }
+      .info-head{
+        padding: 0px 5px 3px;
+        justify-content: center;
+        align-items: center;
+      }
+      .info-content{
+        display:flex;
+        justify-content: space-evenly;
+        gap:5px;
+        flex-wrap: wrap;
+        padding-top: 5px;
+      }
+      .selectpicker{
+        background-color: rgb(13, 220, 130);
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 3px 5px rgb(0,0,0,0.2);
+        font-size:16px;
+      }
+      .sub-btn-1{
+          width:100%;
+          height:80px;
+          background-color: rgb(0, 171, 201);
+          color:var(--clr-dark);
+          padding: 10px;
+          display:flex;
+          gap:20px;
+          justify-content:flex-end;  
+          visibility: visible;
+      }
+      .hide-btn{
+          width:0;
+          height:0;
+          visibility: hidden;
+          padding: 0px;      
+      }
+      .sub-btn{
+        width:0;
+        height:0;
+        visibility: hidden;
+        padding: 0px;    
+      }
+      .send{
+        margin-top: 25px;
+      }
+      .button-container{
+          width:100%;
+          height:50px;
+          background-color: rgb(0, 171, 201);
+          color:var(--clr-dark);
+          /* padding: 10px; */
+          display:flex;
+          /* gap:20px; */
+          /* justify-content:flex-end;   */
+          
+      }
+      .scroll-info-3{
+        width:100%;
+        height: 250px;
+        background-color: rgb(138, 207, 226);
+        color:var(--clr-dark);
+        gap:20px; 
+        overflow: hidden;
+        padding:10px;
+        visibility: visible;
+        padding: 10px;
+      }
+      .pay{
+        display: none;
+        width:480px;
+        height: 470px;
+        background-color: white;
+        
+      }
+      .booking-message{
+        width:100%;
+        height: 170px;
+        background-color: blue;
+        padding: 20px;
+        border-radius: 10px;
+        /* background: url("{% static 'front-end/assets/img/c1.jpg' %}"); */
+      }
+    
+      .booking-tick{
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        /* background-color: blue; */
+        top:30%;
+        left: 70%;
+        transform: translate(200%,-90%);
+        box-shadow: 5px 5px 5px rgb(0,0,0,0.3);
+      
+      }
+      .b-tick{
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+      }
+      
+      .congrats{
+        padding-left: 30px;
+        padding-top: 0px;
+        transform: translate(50px,-50px);
+        /* color:rgb(17, 17, 239); */
+        color:white;
+        
+      }
+      .congrats h4{
+        margin-left: 30px;
+      }
+      .congrats p{
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .pay-message{
+        width: 100%;
+        height: 300px;
+        /* background-color: rgb(217, 40, 179); */
+        border-radius: 10px;
+        padding: 10px;
+        background-color: blue;
+        margin-top: 5px;
+       
+      }
+      .success-booking-popup{
+        display: none;
+        width:480px;
+        height: 470px;
+        background-color: white;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo-details">
+        <i class="bx bxl-c-plus-plus icon"></i>
+        <!-- <i class="fa-solid fa-car"></i> -->
+        <div class="logo_name">UberLike</div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <i class="bx bx-search"></i>
+          <input type="text" placeholder="Search..." />
+          <span class="tooltip">Search</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-user"></i>
+            <span class="links_name">User</span>
+          </a>
+          <span class="tooltip">User</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-chat"></i>
+            <span class="links_name">Messages</span>
+          </a>
+          <span class="tooltip">Messages</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-pie-chart-alt-2"></i>
+            <span class="links_name">Analytics</span>
+          </a>
+          <span class="tooltip">Analytics</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-folder"></i>
+            <span class="links_name">File Manager</span>
+          </a>
+          <span class="tooltip">Files</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-cart-alt"></i>
+            <span class="links_name">Order</span>
+          </a>
+          <span class="tooltip">Order</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-heart"></i>
+            <span class="links_name">Saved</span>
+          </a>
+          <span class="tooltip">Saved</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-cog"></i>
+            <span class="links_name">Setting</span>
+          </a>
+          <span class="tooltip">Setting</span>
+        </li>
+        <li class="profile">
+          <a href="{% url 'logout' %}">
+            <i class="bx bx-log-out"></i>
+            <span class="links_name">Logout</span>
+          </a>
+          <span class="tooltip">Logout</span>
+          <i class="bx bx-log-out" id="log_out" title="click here to Logout"></i>
+        </li>
+      </ul>
+    </div>
+
+    <div class="home-section">
+      <div class="row" id="blur">
+        <div class="col-md-5">
+          <div class="view">
+              <img src="{{std.img.url}}"/>
+          </div><BR>
+          <div id="map" style="border-radius: 10px;">
+          </div>
+        </div>
+        
+        <div class="col-md-3" style="color: white;">
+
+          {% for v in vehicles %}
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-back">
+                <button type="submit" class="btn" onclick="toggle()" title="click"><img src="{% static 'front-end/assets/img/car2.jpg' %}" style="height: 190px;width:230px;"></button>
+                
+              </div>
+              <div class="flip-card-front">
+                <a href="#"><img src="{% static 'front-end/assets/img/car2.jpg' %}" alt="Avatar" style="height: 200px;border-radius: 5px;"></a>
+              </div>
+            </div>
+          </div><BR>
+          {% endfor %}  
+        </div>
+        <div class="col-md-3" style="color: white;">
+          {% for v in vehicles %}
+          <div class="flip-card" style="width: 420px;">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h1>{{v.name}}</h1> 
+                <p>{{v.vehicle_number}}</p> 
+                <p>{{v.phone_number}}</p>
+                <!-- <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;"> -->
+              </div>
+              <div class="flip-card-back">
+                <h1>{{v.name}}</h1> 
+                <p>{{v.vehicle_number}}</p> 
+                <p>{{v.phone_number}}</p>
+              </div>
+            </div>
+          </div><BR>
+          {% endfor %}  
+        </div>
+        
+            <div class="pagination">
+              <ul>
+                {% if vehicles.has_previous %}
+                <li><a href="?page={{vehicles.previous_page_number}}">&laquo;</a></li>
+                {% endif %}
+                {% for pg in vehicles.paginator.page_range %}
+                <li><a href="?page={{pg}}" class="{% if vehicles.number == pg %} active {% endif %}">{{pg}}</a></li>
+                {% endfor %}
+                {% if vehicles.has_next %}
+                <li><a href="?page={{vehicles.next_page_number}}">&raquo;</a></li>
+                {% endif %}
+              </ul>
+            </div>  
+      </div>  
+      
+      <div class="popup" id="popup">
+        <!----------------------HERE LAST WORK------------------------------------------------------>
+        <div class="success-booking-popup" id="pay-success">
+        
+        <button type="button" onclick="closePopup()">Close</button>
+        </div>
+        <!----------------------HERE LAST WORK------------------------------------------------------->
+        <div class="pay" id="pay">
+          <div class="booking-message" id="booking-message">
+                <div class="booking-tick">
+                     <img src="{% static 'front-end/assets/img/btick.jpg' %}" class="b-tick">
+                </div> 
+                <div class="congrats">
+                  <h4>BOOKED SUCCESSFULLY</h4>
+                  <P>You have successfully booked your car!</P>
+                </div>
+          </div>
+          <div class="pay-message" id="pay-message">
+            <h3 style="color:white;font-family: Georgia, 'Times New Roman', Times, serif;margin-left:150px;">PAY TIME</h3>
+            <p style="color: white;font-family: Georgia, 'Times New Roman', Times, serif;font-weight: 500;padding: 0px;margin-left: 10px;">Card Details</p>
+           <form name="pay-form" method="post" action="{% url 'profile' %}">
+            {% csrf_token %}
+            <div class="card-name" style="padding-bottom: 10px;margin:5px;">
+              <input type="text"  name="cardholder_name"  id="card-name" placeholder="Cardholder's Name" required>
+              
+            </div>  
+            <div class="card-num" style="margin: 5px;">  
+              <input type="text" name="card_number" minlength="16" placeholder="Card Number(1234 5678 9012 3457)" required> 
+            </div>  
+            <div class="card-expire" style="display: flex;margin:10px  5px;gap:10px;">
+              <input type="text" name="expire_date" placeholder="Expiration(MM/YYYY)" required>
+              <input type="password" name="card_password" minlength="7" placeholder="&#9679;&#9679;&#9679;(password)" required>
+            </div>
+            <div class="pay-btn" style="display: flex; gap:20px;justify-content: flex-end;align-items: flex-end; margin-top: 20px;">
+              <button style="color: white;" id="pay-now" name="pay-details">Pay Now</button>
+              <button type="button" onclick="closePopup()" style="color: white;">Pay Later</button>
+            </div>
+           </form>
+          </div>
+        </div>
+        
+        <div class="tracking-container" id="container-1">
+            <div class="round round-1"><img class="img-1" id="heading-1" src="{% static 'front-end/assets/img/tick.jpg' %}"><h5 class="h5" id="h5" style="color:brown;padding-left: 5px;padding-top: 60px;">selection</h5></div> 
+                 
+            <div class="line line-1" id="line-1"></div>
+            <div class="round round-2"><img class="img-1" id="heading-2" src="{% static 'front-end/assets/img/tick.jpg' %}"><h5 id="h5-1" style="color:brown;padding-top: 60px;">cu.location</h5></div>
+            <div class="line line-2" id="line-2"></div>
+            <div class="round round-3"><h5 style="color:brown;padding-top: 80px;">destination</h5></div>
+        
+        </div>
+        <div class="content-container"  id="container-2">
+          <div class="scroll-info-1" id="info-1">
+              <div class="img" id="img-of"><img src="car2.jpg" alt="img-car"></div>
+                <div class="info">
+                    <h4>THILAKAN AUTO kjhsias</h4>
+                    <h5>THILAKAN AUTO</h5>
+                    <h4>THILAKAN AUTO</h4>
+                <div class="info">
+                    <h4>Rating</h4>
+                    <h4>Rating</h4>
+                </div> 
+              </div>
+          </div> 
+          
+          <div class="scroll-info-2" id="info-2">
+            <div class="info-head"><h5>LOCATION RIGHT NOW</h5></div>
+              <form method="post" action="{% url 'profile' %}" name="location-form">
+                {% csrf_token %}
+                <div class="info-content">
+
+                  <div class="form-group">                                  
+                    <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" name="state" title="Select your city">
+                        <option>select state</option>
+                        <option>Kannur</option>
+                        <option>Vayanad</option>
+                        <option>Kollam</option>
+                        <option>Tvm</option>
+                        <option>Eranakulum</option>
+                        <option>Kozhikode</option>
+                    </select>
+                  </div>
+                  <div class="form-group">                                   
+                    <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" name="district" title="Select your city">
+                        <option>select district</option>
+                        <option>Kannur</option>
+                        <option>Vayanad</option>
+                        <option>Kollam</option>
+                        <option>Tvm</option>
+                        <option>Eranakulum</option>
+                        <option>Kozhikode</option>
+                    </select>
+                  </div>
+                  <div class="form-group">                                   
+                    <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" name="city" title="Select your city">
+                        <option>select city</option>
+                        <option>Kannur</option>
+                        <option>Vayanad</option>
+                        <option>Kollam</option>
+                        <option>Tvm</option>
+                        <option>Eranakulum</option>
+                        <option>Kozhikode</option>
+                        <option>Kannur</option>
+                        <option>Vayanad</option>
+                        <option>Kollam</option>
+                        <option>Tvm</option>
+                        <option>Eranakulum</option>
+                        <option>Kozhikode</option>
+                        <option>Kannur</option>
+                        <option>Vayanad</option>
+                        <option>Kollam</option>
+                        <option>Tvm</option>
+                        <option>Eranakulum</option>
+                        <option>Kozhikode</option>
+                        <option>Kannur</option>
+                        <option>Vayanad</option>
+                        <option>Kollam</option>
+                        <option>Tvm</option>
+                        <option>Eranakulum</option>
+                        <option>Kozhikode</option>
+                        <option>Kannur</option>
+                        <option>Vayanad</option>
+                        <option>Kollam</option>
+                        <option>Tvm</option>
+                        <option>Eranakulum</option>
+                        <option>Kozhikode</option>
+                    </select>
+                  </div><br><br><br>
+                  <input type="text" placeholder="location mark(detailed)" name="location_mark">
+                  
+                  <button type="submit" class="send" id="send">Send</button>
+                  
+                </div>
+              </form>
+             
+          </div> 
+          <div class="scroll-info-3" id="info-3">
+            <div class="info-head"><h5>DESTINATION</h5><h5>DESTINATION</h5><h5>DESTINATION</h5></div>
+            <form method="post" action="{% url 'profile' %}" name="location-form">
+              {% csrf_token %}
+              <div class="info-content">
+
+                <div class="form-group">                                  
+                  <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" name="state" title="Select your city">
+                      <option>select state</option>
+                      <option>Vayanad</option>
+                      <option>Kollam</option>
+                      <option>Tvm</option>
+                      <option>Eranakulum</option>
+                      <option>Kozhikode</option>
+                  </select>
+                </div>
+                <div class="form-group">                                   
+                  <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" name="district" title="Select your city">
+                      <option>select district</option>
+                      <option>Kannur</option>
+                      <option>Vayanad</option>
+                      <option>Kollam</option>
+                      <option>Tvm</option>
+                      <option>Eranakulum</option>
+                      <option>Kozhikode</option>
+                  </select>
+                </div>
+                <div class="form-group">                                   
+                  <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" name="city" title="Select your city">
+                      <option>select city</option>
+                      <option>Kannur</option>
+                      <option>Vayanad</option>
+                      <option>Kollam</option>
+                      <option>Tvm</option>
+                      <option>Eranakulum</option>
+                      <option>Kozhikode</option>
+                      <option>Kannur</option>
+                      <option>Vayanad</option>
+                      <option>Kollam</option>
+                      <option>Tvm</option>
+                      <option>Eranakulum</option>
+                      <option>Kozhikode</option>
+                      <option>Kannur</option>
+                      <option>Vayanad</option>
+                      <option>Kollam</option>
+                      <option>Tvm</option>
+                      <option>Eranakulum</option>
+                      <option>Kozhikode</option>
+                      <option>Kannur</option>
+                      <option>Vayanad</option>
+                      <option>Kollam</option>
+                      <option>Tvm</option>
+                      <option>Eranakulum</option>
+                      <option>Kozhikode</option>
+                      <option>Kannur</option>
+                      <option>Vayanad</option>
+                      <option>Kollam</option>
+                      <option>Tvm</option>
+                      <option>Eranakulum</option>
+                      <option>Kozhikode</option>
+                  </select>
+                </div><br><br><br>
+                <input type="text" placeholder="location mark(optional)" name="destination">
+                
+                <button type="submit" class="send" id="send">Send</button>
+                
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="button-container" id="container-3">
+            <div class="sub-btn-1" id="sub-btn-1"> 
+              <button type="submit" onclick="closePopup()" class="btn-1" id="btn-1">Cancel</button>
+              <button type="submit" onclick="infoContinue()" class="btn-2" id="btn-2">Continue</button>
+            </div>  
+            <div class="sub-btn" id="sub-btn-2"> 
+              <button type="submit" onclick="infoPrev()" class="btn-1" id="btn-3">Prev</button>
+              <button type="submit" onclick="infoNext()" class="btn-2" id="btn-4">Next</button>
+            </div>  
+            <div class="sub-btn" id="sub-btn-3">
+              <button type="submit" onclick="infoPrev2()" class="btn-1" id="btn-5">Prev</button>
+              <button type="submit" class="btn-2" id="btn-6">Book</button>
+            </div>   
+        </div> 
+        
+       
+      </div> 
+        
+    </div>
+    <script src="{% static 'sidebar/script.js' %}"></script>
+    <script src="{% static 'sidebar/jquery-3.7.1.min.js' %}"></script>
+    <script>
+      function infoBook(){
+        document.getElementById("container-1").style.display="none";
+        document.getElementById("container-2").style.display="none";
+        document.getElementById("container-3").style.display="none";
+        
+      }
+    </script>
+
+    
+    <script>
+      // hide and show div
+      $(document).ready(function(){
+        $('#btn-6').click(function(){
+          $('#container-1').hide();
+          $('#container-2').hide();
+          $('#container-3').hide();
+          $('#pay').show();
+          
+        });
+      });
+      $(document).ready(function(){
+        $('#pay-now').click(function(){
+          $('#pay').hide();
+          $('#pay-success').show();
+          
+        });
+      });
+    </script>
+    <script>
+      //code for submitting form using jQuery,for get rid of page refresh.
+      $(function(){
+            function sendData($form){
+              let dataString = $form.serialize();
+              alert(dataString);
+              return  $.ajax({
+                  type:$form.attr('method'),
+                  url:$form.attr('action'),
+                  data:dataString
+                }); 
+            }
+            // $('form').validate();
+            $('form').on('submit',function(event){
+              event.preventDefault();
+              
+              sendData($(this)).done(function(){
+                  $('#info-head').html('<h2>IM PRAJINA KK</h2>');
+              });
+            });
+      })
+    </script>
+   
+
+    <script>
+      let blur=document.getElementById("blur");
+      let popup=document.getElementById("popup");
+    
+      function closePopup(){
+        popup.classList.remove("open-popup");
+        blur.classList.remove("act");
+      }
+      function infoContinue(){  
+        var sub_btn_1=document.getElementById("sub-btn-1");
+        var sub_btn_2=document.getElementById("sub-btn-2");
+        var line=document.getElementById("line-1");
+        var hideh5=document.getElementById("h5");
+        var head_img=document.getElementById("heading-1");
+        var info=document.getElementById("info-1");
+        var imgof=document.getElementById("img-of");
+        var location=document.getElementById("info-2");
+        imgof.classList.add("close-img");
+        info.classList.add("close-info");
+        location.classList.add("open-location");
+        head_img.classList.add("open-img");
+        hideh5.classList.add("hide");
+        line.classList.add("line-blue");
+        sub_btn_1.classList.add("hide-btn");
+        sub_btn_2.classList.remove("sub-btn");
+        sub_btn_2.classList.add("sub-btn-1");
+        document.getElementById("info-3").style.display="none";
+      }
+      function infoPrev(){
+        var sub_btn_1=document.getElementById("sub-btn-1");
+        var sub_btn_2=document.getElementById("sub-btn-2");
+        var line=document.getElementById("line-1");
+        var hideh5=document.getElementById("h5");
+        var head_img=document.getElementById("heading-1");
+        var info=document.getElementById("info-1");
+        var imgof=document.getElementById("img-of");
+        var location=document.getElementById("info-2");
+        head_img.classList.remove("open-img");
+        hideh5.classList.remove("hide");
+        line.classList.remove("line-blue");
+        imgof.classList.remove("close-img");
+        info.classList.remove("close-info");
+        location.classList.remove("open-location");
+        sub_btn_1.classList.remove("hide-btn");
+        sub_btn_2.classList.add("sub-btn");
+        sub_btn_2.classList.remove("sub-btn-1");
+        document.getElementById("info-3").style.display="none";
+      }
+      function infoNext(){
+        var location_btn=document.getElementById("sub-btn-2");
+        var destination_btn = document.getElementById("sub-btn-3");
+        var line=document.getElementById("line-2");
+        var hideh5=document.getElementById("h5-1");
+        var head_img=document.getElementById("heading-2");
+        destination_btn.classList.remove("sub-btn");
+        destination_btn.classList.add("sub-btn-1");
+        location_btn.classList.add("hide-btn");
+        head_img.classList.add("open-img");
+        hideh5.classList.add("hide");
+        line.classList.add("line-blue");
+        document.getElementById("info-2").style.display="none";
+        document.getElementById("info-3").style.display="flex";
+        document.getElementById("sub-btn-3").style.display="flex";
+      }
+      function infoPrev2(){
+        var location_btn=document.getElementById("sub-btn-2");
+        location_btn.classList.remove("hide-btn");
+        document.getElementById("info-3").style.display="none";
+        document.getElementById("info-2").style.display="block";
+        document.getElementById("sub-btn-3").style.display="none";
+        document.getElementById("sub-btn-2").style.display="flex";
+        
+      }
+      function currentContainer(){
+        var current_container=document.getElementById("popup");
+
+        }
+    </script>
+    <script>
+      function eventPrevent(){
+        var location_form=document.querySelector(".location-form");
+        location_form.addEventListener("submit",function(event){event.preventDefault();});
+      }
+      // document.querySelector(".location-form").addEventListener("submit",function(event){
+      //   event.preventDefault();
+      // });
+    </script>
+    <script>
+      
+      function toggle(){
+        let popup=document.getElementById("popup");
+        var blur=document.getElementById("blur");
+        
+        blur.classList.toggle("act");
+        popup.classList.add("open-popup");
+        document.getElementById("info-3").style.display="none";
+      }
+      
+    </script>
+    
+    <script>
+      let a = "{{stand|escapejs}}";
+      const b = a.replace(/'/g, '"');
+      const stands =JSON.parse(b);
+      for(let s of stands){
+        console.log(s.type);
+      }
+
+      let d = "{{center|escapejs}}"
+      const e =d.replace(/'/g, '"');
+      const center = JSON.parse(e);
+      console.log("success center:",center.lat);
+
+      async function initMap(){
+          const { Map } = await google.maps.importLibrary("maps");
+          const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+          const location =  {
+              lat: center.lat,
+              lng: center.lng,         
+          };
+          console.log("location:",location)
+          const map = new Map(document.getElementById("map"),{
+              center:location,zoom:center.zoom,mapId:"5615fb9271a6f53d"
+          }); 
+          const marker = new AdvancedMarkerElement({map,position:location});  
+
+          // for (const s of stands){
+          //     const marker = new AdvancedMarkerElement({map,position:s.position,content:buildContent(s),title:s.description});
+
+          //     marker.addListener("click", () => {
+          //     toggleHighlight(marker, s);
+          //     });
+          // }
+
+      }
+      
+
+      function toggleHighlight(markerView, property) {
+      if (markerView.content.classList.contains("highlight")) {
+          markerView.content.classList.remove("highlight");
+          markerView.zIndex = null;
+      } else {
+          markerView.content.classList.add("highlight");
+          markerView.zIndex = 1;
+      }
+      }
+
+      function buildContent(property) {
+      const content = document.createElement("div");
+
+      content.classList.add("property");
+      content.innerHTML = `
+          <div class="icon">
+              <i aria-hidden="true" class="fa fa-${property.type}" title="${property.type}"></i>
+              <span class="fa-sr-only">${property.type}</span>
+          </div>
+          <div class="details">
+              <div class="price">${property.price}</div>
+              <div class="address">${property.address}</div>
+              <div class="features">
+              <div>
+                  <i aria-hidden="true" class="fa fa-car fa-lg car" title="bedroom"></i>
+                  <span class="fa-sr-only">car</span>
+                  <span>${property.size}</span>
+              </div>
+              </div>
+          </div>
+          `;
+      return content;
+      }
+
+
+      
+
+
+
+    </script>
+
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGFCwcts11ycVuaGNUb9hNTJOGDpQF9f0&callback=initMap"></script>
+   
+   
+
+   
+    
+    
+   
+  </body>
+</html>

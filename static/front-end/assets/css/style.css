@@ -11,7 +11,7 @@ body {
     font-size:14px;
     line-height: 28px;
     color: #777; 
-    background: #fff; 
+    /* background: #fff;  */
     position: relative;
 }
 /*           Font Smoothing      */
@@ -327,7 +327,7 @@ input[type="search"]::-webkit-search-decoration {
 .form-inline .form-control, .form-inline .form-control {
     background: rgba(252, 252, 252, 0.35);
     border-radius: 1px;
-    color: #ADADAD;
+    color: #11101d;
     height: 40px;
     margin-right: 10px;
     width: 195px;
@@ -339,7 +339,7 @@ input[type="search"]::-webkit-search-decoration {
     padding: 6px 12px;
     font-size: 13px;
     line-height: 1.42857;
-    color: #555;
+    color: #11101d;
     background-color: #FFF;
     background-image: none;
     border: 1px solid #EAE9E9;
@@ -403,7 +403,7 @@ input[type="search"]::-webkit-search-decoration {
     padding: 6px 12px;
     font-size: 13px;
     line-height: 1.42857;
-    color: #838383;
+    color: #11101d;
     background-color: #FFF;
     background-image: none;
     border: 1px solid #DADADA;
@@ -452,7 +452,7 @@ input[type="search"]::-webkit-search-decoration {
 }
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
     background-color: #EEEEEE;
-    color: #999999;
+    color: #11101d;
     cursor: not-allowed;
 }
 .has-success .form-control, 
@@ -541,14 +541,14 @@ label small{
 .bootstrap-select button.dropdown-toggle{
     background: rgba(252, 252, 252, 0.35) none repeat scroll 0% 0%;
     border-radius: 1px;
-    color: #ADADAD;
+    
     height: 40px;
     margin-right: 10px;
     width: 99%;
     display: block;
     font-size: 13px;
     line-height: 1.42857;
-    color: #ADADAD;
+    color: #11101d;
     background-color: #FFF;
     background-image: none;
     border: 1px solid #EAE9E9;
@@ -2127,7 +2127,7 @@ single property page
     padding: 30px 0px 0px 10px;
 }
 .dealer-contacts li i{
-    color: black;
+    color: #11101d;
     padding-right: 8px;
 }
 .clear{ 
@@ -2162,7 +2162,7 @@ single property page
     font-weight: 500;
 }
 .property-features ul li a:hover{    
-    color: black;
+    color: #11101d;
 }
 .roperty-social ul{
     padding: 0px;
@@ -2208,7 +2208,7 @@ single property page
     font-weight: 300;
 }
 .dealer-action a:hover{
-    color: black;
+    color: #11101d;
 }
 .dealer-action a::after{
     content: "/";
@@ -2478,12 +2478,14 @@ count-area
     color: #000;
 }
 .item-entry a:hover ,.item-entry a:focus {
-    color: #999696;
+    color: #11101d;
 }
+
+/* 999696 */
 .search-form .search-toggle {
     margin-top: 20px;
     overflow: hidden;
-    color: #777;
+    color: #11101d;
     border-top: 1px solid #EAEAEA;
     padding: 15px;
 }
@@ -2496,7 +2498,7 @@ count-area
     background: #FDC600;
 }
 .search-form .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-    color: #FFF;
+    color: #11101d;
     text-decoration: none;
     background-color: #FDC600;
     outline: 0px none;

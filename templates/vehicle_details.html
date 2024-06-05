@@ -1,0 +1,423 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Website - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Responsive Sidebar Menu HTML CSS | CodingNepal</title>
+    <link rel="stylesheet" href="{% static 'sidebar/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'front-end/assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'front-end/bootstrap/css/bootstrap.css' %}">
+
+    <!-- Boxicons CDN Link -->
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .col-md-6{
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      
+      .sidebar .logo-details .logo_name{
+        color: #11101d;
+      }
+      .sidebar{
+        
+        background: linear-gradient(0deg,#0c0c0c,rgb(41, 41, 159));
+      }
+      
+      .sidebar li.profile{
+  
+        border-radius: 10px;
+        background-color: #11101D;
+      }
+      .view {
+        height: 300px;
+        background-color: rgb(223, 213, 223);
+        padding:20px;
+        width:400px;
+        border-radius: 20px;
+      }
+      .home-section{
+        position: relative;
+        min-height: 100vh;
+        top: 0;
+        left: 78px;
+        width: calc(100% - 78px);
+        transition: all 0.5s ease;
+        z-index: 2;
+        background: linear-gradient(0deg,#0c0c0c,rgb(41, 41, 159));
+        padding: 30px;
+      }
+
+      .sidebar.open ~ .home-section{
+      left: 250px;
+      width: calc(100% - 250px);
+      }
+    
+      .flip-card {
+        background-color: transparent;
+        width: 250px;
+        height: 200px;
+        perspective: 1000px;
+        
+        
+      }
+
+      .flip-card-inner {
+        
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      }
+
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+
+      .flip-card-front {
+        background: linear-gradient(0deg,#0c0c0c,rgb(41, 41, 159));
+        color: white;
+      }
+
+      .flip-card-back {
+        background-color: linear-gradient(0deg,#0c0c0c,rgb(41, 41, 159));
+        color: white;
+        transform: rotateY(180deg);
+      }
+      .pagination {
+        display: inline-block;
+        padding-left: 780px;
+        border-radius: 20px;
+       
+      }
+
+      .pagination a {
+        color: blue;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+      }
+
+      .pagination a.active {
+        background-color: #4CAF50;
+        color: white;
+      }
+
+      .pagination a:hover:not(.active) {background-color: wheat;}
+      .btn{
+        border: 0;
+        outline: none;
+        box-shadow: 0px 6px 6px rgba(241, 244, 244, 0.9);
+        border-radius: 10px;
+      }
+      .popup{
+        width: 600px;
+        background: #fff;
+        justify-content: center;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        border-radius: 6px;
+        position: absolute;
+        top:40%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        opacity: 0;
+        transition: 0.4s;
+        visibility: hidden;
+      }
+      .open-popup{
+        top:50%;
+        visibility: visible;
+        transform: translate(-50%,-50%);
+        opacity: 1;
+        transition: 0.4s;
+      }
+      .row#blur.act{
+         filter: blur(15px);
+         pointer-events: none;
+         user-select: none;
+      }
+    </style>
+              
+
+  
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo-details">
+        <i class="bx bxl-c-plus-plus icon"></i>
+        <!-- <i class="fa-solid fa-car"></i> -->
+        <div class="logo_name">UberLike</div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <i class="bx bx-search"></i>
+          <input type="text" placeholder="Search..." />
+          <span class="tooltip">Search</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-user"></i>
+            <span class="links_name">User</span>
+          </a>
+          <span class="tooltip">User</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-chat"></i>
+            <span class="links_name">Messages</span>
+          </a>
+          <span class="tooltip">Messages</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-pie-chart-alt-2"></i>
+            <span class="links_name">Analytics</span>
+          </a>
+          <span class="tooltip">Analytics</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-folder"></i>
+            <span class="links_name">File Manager</span>
+          </a>
+          <span class="tooltip">Files</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-cart-alt"></i>
+            <span class="links_name">Order</span>
+          </a>
+          <span class="tooltip">Order</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-heart"></i>
+            <span class="links_name">Saved</span>
+          </a>
+          <span class="tooltip">Saved</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-cog"></i>
+            <span class="links_name">Setting</span>
+          </a>
+          <span class="tooltip">Setting</span>
+        </li>
+        <li class="profile">
+          <a href="{% url 'logout' %}">
+            <i class="bx bx-log-out"></i>
+            <span class="links_name">Logout</span>
+          </a>
+          <span class="tooltip">Logout</span>
+          <i class="bx bx-log-out" id="log_out" title="click here to Logout"></i>
+        </li>
+      </ul>
+    </div>
+
+    <div class="home-section">
+      <div class="row" id="blur">
+        <div class="col-md-5">
+          <div class="view">
+              <img src="{{std.img.url}}"/>
+          </div><BR>
+          <div id="map" style="border-radius: 10px;">
+          </div>
+          
+        </div>
+        
+        <div class="col-md-3" style="color: white;">
+
+          {% for v in vehicles %}
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-back">
+                <button type="submit" class="btn" onclick="toggle()" title="click"><img src="{% static 'front-end/assets/img/car2.jpg' %}" style="height: 190px;width:230px;"></button>
+                
+              </div>
+              <div class="flip-card-front">
+                <a href="#"><img src="{% static 'front-end/assets/img/car2.jpg' %}" alt="Avatar" style="height: 200px;border-radius: 5px;"></a>
+              </div>
+            </div>
+          </div><BR>
+          {% endfor %}  
+        </div>
+        <div class="col-md-3" style="color: white;">
+          {% for v in vehicles %}
+          <div class="flip-card" style="width: 420px;">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h1>{{v.name}}</h1> 
+                <p>{{v.vehicle_number}}</p> 
+                <p>{{v.phone_number}}</p>
+                <!-- <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;"> -->
+              </div>
+              <div class="flip-card-back">
+                <h1>{{v.name}}</h1> 
+                <p>{{v.vehicle_number}}</p> 
+                <p>{{v.phone_number}}</p>
+              </div>
+            </div>
+          </div><BR>
+          {% endfor %}  
+        </div>
+        
+            <div class="pagination">
+              <ul>
+                {% if vehicles.has_previous %}
+                <li><a href="?page={{vehicles.previous_page_number}}">&laquo;</a></li>
+                {% endif %}
+                {% for pg in vehicles.paginator.page_range %}
+                <li><a href="?page={{pg}}" class="{% if vehicles.number == pg %} active {% endif %}">{{pg}}</a></li>
+                {% endfor %}
+                {% if vehicles.has_next %}
+                <li><a href="?page={{vehicles.next_page_number}}">&raquo;</a></li>
+                {% endif %}
+              </ul>
+            </div>  
+      </div>      
+      <div class="popup" id="popup">
+        <!--what should be popup-->
+        <button type="button" onclick="closePopup()">Cancel</button>
+      </div>
+        
+      
+      
+      
+    </div>
+    
+  
+    <script src="{% static 'sidebar/script.js' %}"></script>
+    <script>
+      let blur=document.getElementById("blur");
+      let popup=document.getElementById("popup");
+    
+      function closePopup(){
+        popup.classList.remove("open-popup");
+        blur.classList.remove("act");
+      }
+    </script>
+    <script>
+      
+      function toggle(){
+        let popup=document.getElementById("popup");
+        var blur=document.getElementById("blur");
+        blur.classList.toggle("act");
+        popup.classList.add("open-popup");
+      }
+    </script>
+    
+    <script>
+      let a = "{{stand|escapejs}}";
+      const b = a.replace(/'/g, '"');
+      const stands =JSON.parse(b);
+      for(let s of stands){
+        console.log(s.type);
+      }
+
+      let d = "{{center|escapejs}}"
+      const e =d.replace(/'/g, '"');
+      const center = JSON.parse(e);
+      console.log("success center:",center.lat);
+
+      async function initMap(){
+          const { Map } = await google.maps.importLibrary("maps");
+          const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+          const location =  {
+              lat: center.lat,
+              lng: center.lng,         
+          };
+          console.log("location:",location)
+          const map = new Map(document.getElementById("map"),{
+              center:location,zoom:center.zoom,mapId:"5615fb9271a6f53d"
+          }); 
+          const marker = new AdvancedMarkerElement({map,position:location});  
+
+          // for (const s of stands){
+          //     const marker = new AdvancedMarkerElement({map,position:s.position,content:buildContent(s),title:s.description});
+
+          //     marker.addListener("click", () => {
+          //     toggleHighlight(marker, s);
+          //     });
+          // }
+
+      }
+      
+
+      function toggleHighlight(markerView, property) {
+      if (markerView.content.classList.contains("highlight")) {
+          markerView.content.classList.remove("highlight");
+          markerView.zIndex = null;
+      } else {
+          markerView.content.classList.add("highlight");
+          markerView.zIndex = 1;
+      }
+      }
+
+      function buildContent(property) {
+      const content = document.createElement("div");
+
+      content.classList.add("property");
+      content.innerHTML = `
+          <div class="icon">
+              <i aria-hidden="true" class="fa fa-${property.type}" title="${property.type}"></i>
+              <span class="fa-sr-only">${property.type}</span>
+          </div>
+          <div class="details">
+              <div class="price">${property.price}</div>
+              <div class="address">${property.address}</div>
+              <div class="features">
+              <div>
+                  <i aria-hidden="true" class="fa fa-car fa-lg car" title="bedroom"></i>
+                  <span class="fa-sr-only">car</span>
+                  <span>${property.size}</span>
+              </div>
+              </div>
+          </div>
+          `;
+      return content;
+      }
+
+
+      
+
+
+
+    </script>
+
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGFCwcts11ycVuaGNUb9hNTJOGDpQF9f0&callback=initMap"></script>
+   
+   
+
+   
+    
+    
+   
+  </body>
+</html>

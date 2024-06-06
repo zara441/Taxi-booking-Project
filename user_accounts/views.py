@@ -105,8 +105,7 @@ def signup(request):
             return redirect('/')
         else:
             messages.error(request,"Invalid Credentials!!")
-
-        
+                    
     return render(request,'register_login.html',context)
 
 def logout(request):

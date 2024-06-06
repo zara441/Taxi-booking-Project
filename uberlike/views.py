@@ -6,6 +6,13 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
+    if request.POST and 'avialable-status' in request.POST:
+       available=request.POST.get('available')
+       notavailable=request.POST.get('not-available')
+       print("-------------------",request.POST)
+       print("-------------------",available)
+       print("-------------------",notavailable)
+       # values:none,on
     # my lat  vattaparamb: 11.937336446169454, 75.65324167404668  :11.936248278783117, 75.65216104072476
     user=request.user 
     alls=VehicleStand.objects.all()

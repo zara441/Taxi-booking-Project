@@ -16,21 +16,66 @@
     <!-- Boxicons CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <style>
+      :root{
+          --clr-dark: #0f1729;
+          --clr-light:#f1f5f9;
+          --clr-accent:#e11d48;
+          --clr-blue:#FDC600;
+      }
+      
       body{
           display: flex;
           margin:0;
           padding:0;
           font-family: "Roboto" ,sans-serif; 
       }
-    
+      .home-section{
+         background: linear-gradient(0deg,#f1f5f9,#FDC600);
+      }
+      .sidebar{
+         background: linear-gradient(0deg,#f1f5f9,#FDC600);
+      }
+      .btn{
+        border: none;
+      }
+      .flip-card-front{
+        
+        border-radius: 10px;
+      }
+      .flip-card-back{
+        
+        border-radius: 10px;
+      }
+      .popup{
+        background-color: white;
+      }
+      .flip-card-front {
+      background: linear-gradient(0deg,#0c0c0c,rgb(41, 41, 159));
+      color: white;
+      }
+      .flip-card-back {
+      background: linear-gradient(0deg,#0c0c0c,rgb(41, 41, 159));
+      color: white;
+      }
+      .tracking-container{
+        background-color: blue;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+
+
       .content-container{
         width:100%;
         height: 250px;
-        background-color: rgb(138, 207, 226);
-        color:var(--clr-dark);
-        /* display:flex; */
+        background-color: white;
+        border-radius: 10px;
+        color:white;
         gap:0;
+      }
+      .width-change{
+        width: 98%;
       }
      
       .img-1{
@@ -46,7 +91,7 @@
         border-radius: 100%;
         padding-top: 10px;
         padding-left: 8px;
-        box-shadow: 2px 3px rgb(46, 173, 219);
+        box-shadow: 2px 3px #FDC600;
         visibility: visible;
       }
       .hide{
@@ -64,8 +109,9 @@
       .scroll-info-1{
           width:100%;
           height: 250px;
-          background-color: rgb(138, 207, 226);
+          background-color: blue;
           color:var(--clr-dark);
+          border-radius: 10px;
           display:flex;
           gap:50px;
           padding: 5px;
@@ -94,7 +140,8 @@
       .open-location{
         width:100%;
         height: 250px;
-        background-color: rgb(138, 207, 226);
+        background-color: blue;
+        border-radius: 10px;
         color:var(--clr-dark);
         gap:30px; 
         overflow: hidden;
@@ -123,12 +170,13 @@
       }
       .sub-btn-1{
           width:100%;
-          height:80px;
-          background-color: rgb(0, 171, 201);
+          height:70px;
+          background-color: white;
           color:var(--clr-dark);
           padding: 10px;
           display:flex;
           gap:20px;
+          border-radius: 10px;
           justify-content:flex-end;  
           visibility: visible;
       }
@@ -150,20 +198,18 @@
       .button-container{
           width:100%;
           height:50px;
-          background-color: rgb(0, 171, 201);
+          background: white;
           color:var(--clr-dark);
-          /* padding: 10px; */
           display:flex;
-          /* gap:20px; */
-          /* justify-content:flex-end;   */
           
       }
       .scroll-info-3{
         width:100%;
         height: 250px;
-        background-color: rgb(138, 207, 226);
+        background-color: blue;
         color:var(--clr-dark);
         gap:20px; 
+        border-radius: 10px;
         overflow: hidden;
         padding:10px;
         visibility: visible;
@@ -189,7 +235,6 @@
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        /* background-color: blue; */
         top:30%;
         left: 70%;
         transform: translate(200%,-90%);
@@ -201,12 +246,13 @@
         height: 80px;
         border-radius: 50%;
       }
-      
+      .change-to-white{
+        background-color: white;
+      }
       .congrats{
         padding-left: 30px;
         padding-top: 0px;
         transform: translate(50px,-50px);
-        /* color:rgb(17, 17, 239); */
         color:white;
         
       }
@@ -220,7 +266,6 @@
       .pay-message{
         width: 100%;
         height: 300px;
-        /* background-color: rgb(217, 40, 179); */
         border-radius: 10px;
         padding: 10px;
         background-color: blue;
@@ -228,11 +273,24 @@
        
       }
       .success-booking-popup{
+        display: flex;
         display: none;
         width:480px;
         height: 470px;
-        background-color: white;
+        background: #FDC600;
+        border-radius: 10px;
         
+      }
+      button:hover{
+        background-color: #FDC600;
+        
+      }
+      .celebrate-div button{
+        
+        background: linear-gradient(0deg,rgb(193, 3, 174),rgb(222, 227, 229),rgb(193, 3, 174));
+      }
+      .celebrate-div button:hover{
+        background: linear-gradient(0deg,rgb(193, 3, 174),white);
       }
     </style>
   </head>
@@ -381,8 +439,17 @@
       <div class="popup" id="popup">
         <!----------------------HERE LAST WORK------------------------------------------------------>
         <div class="success-booking-popup" id="pay-success">
+           
+         <p style="padding-top: 100px;padding-left: 120px;font-size: 25px;font-weight: 700; color: white;">CONGRADULATIONS!</p>
+         <h4 style="padding-left: 90px;color:white;">~Congradulations On Your First Ride~</h4>
+        <div class="close-button" style=" width: 100%;height:150px;display:flex;justify-content: center;align-items: center;background-color: #FDC600;">
+          <button type="button" onclick="closePopup()">Close</button>
+          
+        </div> 
+        <div class="celebrate-div" id="celebrate-div" style="display:flex;justify-content: center;align-items: center;background-color: #FDC600;"">
+          <button type="button" id="celebrate-button">Celebrate</button><br>
+        </div>
         
-        <button type="button" onclick="closePopup()">Close</button>
         </div>
         <!----------------------HERE LAST WORK------------------------------------------------------->
         <div class="pay" id="pay">
@@ -420,12 +487,12 @@
         </div>
         
         <div class="tracking-container" id="container-1">
-            <div class="round round-1"><img class="img-1" id="heading-1" src="{% static 'front-end/assets/img/tick.jpg' %}"><h5 class="h5" id="h5" style="color:brown;padding-left: 5px;padding-top: 60px;">selection</h5></div> 
+            <div class="round round-1"><img class="img-1" id="heading-1" src="{% static 'front-end/assets/img/tick.jpg' %}"><h5 class="h5" id="h5" style="color:white;padding-left: 5px;padding-top: 60px;">selection</h5></div> 
                  
             <div class="line line-1" id="line-1"></div>
-            <div class="round round-2"><img class="img-1" id="heading-2" src="{% static 'front-end/assets/img/tick.jpg' %}"><h5 id="h5-1" style="color:brown;padding-top: 60px;">cu.location</h5></div>
+            <div class="round round-2"><img class="img-1" id="heading-2" src="{% static 'front-end/assets/img/tick.jpg' %}"><h5 id="h5-1" style="color:white;padding-top: 60px;">cu.location</h5></div>
             <div class="line line-2" id="line-2"></div>
-            <div class="round round-3"><h5 style="color:brown;padding-top: 80px;">destination</h5></div>
+            <div class="round round-3"><h5 style="color:white;padding-top: 80px;">destination</h5></div>
         
         </div>
         <div class="content-container"  id="container-2">
@@ -605,12 +672,44 @@
     <script src="{% static 'sidebar/script.js' %}"></script>
     <script src="{% static 'sidebar/jquery-3.7.1.min.js' %}"></script>
     <script>
-      function infoBook(){
-        document.getElementById("container-1").style.display="none";
-        document.getElementById("container-2").style.display="none";
-        document.getElementById("container-3").style.display="none";
-        
-      }
+       
+       $(document).ready(function(){
+             $('#celebrate-button').click(function(){
+              confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+              });
+             });
+       });
+    </script>
+    <script>
+      function createConfetti(){
+          var duration = 10 * 1000;
+          var animationEnd = Date.now() + duration;
+          var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+          function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+          }
+
+          var interval = setInterval(function() {
+            var timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+              return clearInterval(interval);
+            }
+
+            var particleCount = 50 * (timeLeft / duration);
+            // since particles fall down, start a bit higher than random
+            confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
+            confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+          }, 250);
+
+        }
+        document.getElementById('pay-now').addEventListener("click",()=>{
+          createConfetti();
+        })
     </script>
 
     
@@ -623,12 +722,15 @@
           $('#container-3').hide();
           $('#pay').show();
           
+          
         });
       });
       $(document).ready(function(){
         $('#pay-now').click(function(){
           $('#pay').hide();
           $('#pay-success').show();
+          confetti();
+          
           
         });
       });
@@ -666,6 +768,7 @@
         blur.classList.remove("act");
       }
       function infoContinue(){  
+        var container_2=document.getElementById("container-2");
         var sub_btn_1=document.getElementById("sub-btn-1");
         var sub_btn_2=document.getElementById("sub-btn-2");
         var line=document.getElementById("line-1");
@@ -683,9 +786,11 @@
         sub_btn_1.classList.add("hide-btn");
         sub_btn_2.classList.remove("sub-btn");
         sub_btn_2.classList.add("sub-btn-1");
+        container_2.classList.add("width-change");
         document.getElementById("info-3").style.display="none";
       }
       function infoPrev(){
+        var container_2=document.getElementById("container-2");
         var sub_btn_1=document.getElementById("sub-btn-1");
         var sub_btn_2=document.getElementById("sub-btn-2");
         var line=document.getElementById("line-1");
@@ -703,6 +808,7 @@
         sub_btn_1.classList.remove("hide-btn");
         sub_btn_2.classList.add("sub-btn");
         sub_btn_2.classList.remove("sub-btn-1");
+        container_2.classList.remove("width-change");
         document.getElementById("info-3").style.display="none";
       }
       function infoNext(){

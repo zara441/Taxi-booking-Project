@@ -7,14 +7,20 @@
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <title>Responsive Sidebar Menu HTML CSS | CodingNepal</title>
+    <title>UberLike</title>
     <link rel="stylesheet" href="{% static 'sidebar/style.css' %}" />
-    <link rel="stylesheet" href="{% static 'front-end/assets/css/style.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'front-end/assets/css/style.css' %}"> -->
     <!-- Boxicons CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'front-end/bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/648d5aac71.js" crossorigin="anonymous"></script>
     <style>
+      
+      @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
       body{
         font-family:Arial, Helvetica, sans-serif;
         background: linear-gradient(0deg,#FDC600,rgb(230, 226, 226));
@@ -24,11 +30,13 @@
       }
       .sidebar{
         background: linear-gradient(0deg,#FDC600,rgb(230, 226, 226));
+        
       }
+     
       .home-section{
         
         background: linear-gradient(0deg,#FDC600,rgb(230, 226, 226));
-        padding:40px;
+        
         position: relative;
         min-height: 100vh;
         top: 0;
@@ -36,7 +44,9 @@
         width: calc(100% - 78px);
         transition: all 0.5s ease;
         z-index: 2;
-        
+        /* display: flex; */
+        gap:20px;
+        /* flex-wrap: wrap;padding:40px; */
       }
       .profile{
         background-color: white;
@@ -49,18 +59,242 @@
         
         
       }
-      .pro-photo{
-        background-color: antiquewhite;
-        border-radius: 120px;
-        height: 150px;
-        padding:30px;
-        width: 150px;
+      .sidebar li button{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        border-radius: 12px;
+        align-items: center;
+        text-decoration: none;
+        transition: all 0.4s ease;
+        background: #11101D;
+        border: none;
+        outline: none;
       }
-      
-    </style>
-              
+      .sidebar li button:hover{
+        background: #FFF;
+      }
+      .sidebar li button .links_name{
+        color: #fff;
+        font-size: 15px;
+        font-weight: 400;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.4s;
+      }
+      .sidebar.open li button .links_name{
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .sidebar li button:hover .links_name,
+      .sidebar li button:hover i{
+        transition: all 0.5s ease;
+        color: #11101D;
+      }
+      .sidebar li button:hover{
+        border: none;
+      }
+      .profile-info-1{
+        height: 500px;
+        width: 800px;
+        background-color: #d6cba3;
+      }
+      .profile-info-2{
+        display: flex;
+        height: 650px;
+        width: 400px;
+        padding: 25px;
+        background:linear-gradient(0deg,#FDC600,white,#FDC600);
+        box-shadow: 0px 4px 5px rgb(0,0,0,0.2);
+        border-radius: 5px; 
+        gap:10px;
+        
+      }
+      .profile-photo{
+        height: 100px;
+        width: 100px;
+        background-color: #FFF;
+        border-radius: 50%;
+      }
+      .followers{
+        height: 100px;
+        width: 200px;
+        /* background-color: red; */
+        display: flex;
+        gap:20px;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        
+      }
+      /* .profile-photo input{
+        display: none;
+      } */
+      .profile-photo label,img{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .user{
+        background: linear-gradient(0deg,#FDC600,rgb(230, 226, 226));
+        padding:40px;
+        position: relative;
+        min-height: 100vh;
+        top: 0;
+        left: 78px;
+        width: calc(100% - 78px);
+        transition: all 0.5s ease;
+        z-index: 2;
+        display: none;
+        gap:20px;
+        /* flex-wrap: wrap; */
+      }
+      .dashboard{
+        background: linear-gradient(0deg,#FDC600,rgb(230, 226, 226));
+        /* background-color: #FFF; */
+        padding:20px;
+        padding-right: 0px;
+        position: relative;
+        min-height: 100vh;
+        top: 0;
+        left: 78px;
+        width: calc(100% - 78px);
+        transition: all 0.5s ease;
+        z-index: 2;
+        /* display: flex; */
+        /* gap:20px; */
+        /* flex-wrap: wrap; */
+      }
+      .dashboard h3{
+        font-family: "Dancing Script", cursive;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+        height: 35px;
+      }
+      .search{
+        height: 60px;
+        /* background-color: red; */
+        width:1000px;
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px;
+        padding-right: 0px;
+        flex-wrap: none;
+      }
+      .search input{
+        height: 40px;
+        border: none;
+        outline: none;
+        /* box-shadow: 0px 5px 0px rgb(189, 16, 189, 0.8); */
+        /* box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.8); */
+        box-shadow: 0px 5px 0px rgb(158, 88, 224,0.8);
 
-  
+        background: none;
+        /* font-size: 20px; */
+      }
+      .search button{
+        height: 40px;
+        width: 40px;
+        border: none;
+        outline: none;
+        background: none;
+      }
+      .search button:hover{
+        background-color: #09a2d5;
+        border-radius: 30px;
+        padding: 2px;
+      }
+      .search i{
+        font-size: 20px;
+      }
+      .top-bar{
+        height: 60px;
+        width: 100%;
+        /* background-color: #FFF; */
+        display: flex;
+      }
+      .notification-bar{
+        height: 40px;
+        width: 200px;
+        /* background-color: aqua; */
+        display: flex;
+        gap:40px;
+        padding: 20px;
+        padding-left: 30px;
+        
+      }
+      .grid-1{
+        width: 100%;
+        height: 300px;
+        /* background-color: aqua; */
+        padding: 70px 10px 10px 0px;
+        
+        display: flex;
+        gap:20px;
+        
+      }
+      .grid-profile{
+          height: 200px;
+          width: 300px;
+          background-color: #FDC600;
+          /* background: linear-gradient(0deg,#FDC600,rgb(234, 236, 136)); */
+          display:flex;
+          padding: 20px;
+          box-shadow: 0px 3px 5px rgb(0,0,0,0.2);
+          border-radius: 2px;
+          gap:10px;
+          flex-wrap:wrap;
+      }
+      .rec{
+        height: 100px;
+        width: 100px;
+        /* background-color: rgb(189, 16, 189); */
+        background-color: rgb(158, 88, 224);
+        /* background: linear-gradient(0deg,#FDC600,rgb(202, 214, 31),rgb(234, 236, 136)); */
+        transform: translateY(-40%);
+        box-shadow: 0px 5px 5px rgb(0,0,0,0.2);
+        border-radius: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 35px;
+        color:white;
+      }
+      .grid-2{
+       
+        height: 250px;
+        padding: 70px 10px 10px 0px;
+        display: flex;
+        gap:20px;
+        background-color: #FDC600;
+        margin-top: 20px;
+        width: 97%;
+        box-shadow: 0px 3px 5px rgb(0,0,0,0.2);
+        border-radius: 2px;
+         
+      }
+      .info{
+        /* background-color: blue; */
+        height: 175px;
+        width: 150px;
+        padding:7px 0px 0px 20px;
+        color: rgba(0, 0, 0, 0.542);
+        border-radius: 20px;
+        box-shadow: 0px 2px 2px rgb(0,0,0,0.1);
+        font-family: "Kanit", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .info i{
+        color: blueviolet;
+        /* color:#676363 */
+        /* color:#676363 */
+        
+      }
+    </style>
   </head>
   <body>
     <div class="sidebar">
@@ -77,97 +311,188 @@
           <span class="tooltip">Search</span>
         </li>
         <li>
-          <a href="#">
-            <i class="bx bx-grid-alt"></i>
-            <span class="links_name">Dashboard</span>
-          </a>
+          <!-- <a href="#"> -->
+          <button type="button" onclick="dashboardShow()">  
+              <i class="bx bx-grid-alt"></i>
+              <span class="links_name">Dashboard</span>
+          </button> 
+          <!-- </a> -->
           <span class="tooltip">Dashboard</span>
         </li>
         <li>
-          <a href="#">
+          <button type="button" id="user-button" onclick="userShow()">
             <i class="bx bx-user"></i>
             <span class="links_name">User</span>
-          </a>
+          </button>
           <span class="tooltip">User</span>
         </li>
         <li>
-          <a href="#">
+          <button>
             <i class="bx bx-chat"></i>
             <span class="links_name">Messages</span>
-          </a>
+          </button>
           <span class="tooltip">Messages</span>
         </li>
         <li>
-          <a href="#">
+          <button>
             <i class="bx bx-pie-chart-alt-2"></i>
             <span class="links_name">Analytics</span>
-          </a>
+          </button>
           <span class="tooltip">Analytics</span>
         </li>
         <li>
-          <a href="#">
-            <i class="bx bx-folder"></i>
-            <span class="links_name">File Manager</span>
-          </a>
-          <span class="tooltip">Files</span>
+          <button>
+            <i class="bx bx-recent"></i>
+            <span class="links_name">Recent</span>
+          </button>
+          <span class="tooltip">Recent</span>
         </li>
         <li>
-          <a href="#">
-            <i class="bx bx-cart-alt"></i>
-            <span class="links_name">Order</span>
-          </a>
-          <span class="tooltip">Order</span>
+          <button>
+            <i class="bx bx-car"></i>
+            <span class="links_name">Rides</span>
+          </button>
+          <span class="tooltip">Rides</span>
         </li>
         <li>
-          <a href="#">
+          <button>
             <i class="bx bx-heart"></i>
             <span class="links_name">Saved</span>
-          </a>
+          </button>
           <span class="tooltip">Saved</span>
         </li>
         <li>
-          <a href="#">
+          <button>
             <i class="bx bx-cog"></i>
             <span class="links_name">Setting</span>
-          </a>
+          </button>
           <span class="tooltip">Setting</span>
         </li>
         <li class="profile">
-          <div class="profile-details">
-            <img src="profile.jpg" alt="profileImg" />
-            <div class="name_job">
-              <div class="name">Prajina kk</div>
-              <div class="job">Web designer</div>
-            </div>
-          </div>
-          <a href=""><i class="bx bx-log-out" id="log_out"></i></a>
+          <a href="{% url 'logout' %}">
+            <i class="bx bx-log-out"></i>
+            <span class="links_name">Logout</span>
+          </a>
+          <span class="tooltip">Logout</span>
+          <i class="bx bx-log-out" id="log_out" title="click here to Logout"></i>
         </li>
       </ul>
     </div>
     <section class="home-section">
-      <div class="row">
-        <div class="col-md-4">
-          <h1>ABCD</h1>
-        </div>
-        <div class="col-md-8">
-          <h1>EFGH</h1>
-        </div>
-        <div class="col-md-8">
-          <h1>EFGH</h1>
-        </div>
         
-        
-      </div>
-      
-      
- 
+      <div class="user" id="user">
+          <div class="profile-info-1">
 
-      
+          </div>
+          <div class="profile-info-2">
+            <div class="profile-photo">
+              <label for="input-file"><img src="{% static 'front-end/assets/img/user.jpg' %}" id="pro-pic"></label>
+              <input type="file" id="input-file" accept="image/jpeg,image/png,image/jpg">
+            </div>
+            <div class="followers">
+              <div class="followers-1">
+                  <h4>Ride</h4>
+                  <h4 style="padding-left: 10px;">0</h4>
+              </div>
+              <div class="followers-1">
+                <h4>Ride</h4>
+                <h4  style="padding-left: 10px;">0</h4>
+              </div>
+              <div class="followers-1">
+                <h4>Ride</h4>
+                <h4  style="padding-left: 10px;">0</h4>
+
+              </div>
+            </div>
+          </div>
+      </div> 
+      <div class="dashboard" id="dashboard">
+        <div class="top-bar">
+          <i class="fas fa-home" style="font-size:35px;height: 50px;color:black"><span>.&nbsp;</span></i>
+          <h3>Dashboard</h3>
+          <div class="search">
+            <input type="text" placeholder="search...">
+            <button type="submit"><i class="fa fa-search"></i></button>
+            <div class="notification-bar">
+              <i class=""></i>
+              <button type="button" style="padding: 5px;"><i class="fa fa-bell" style="height: 30px;"><div class="notification" style="height: 14px;width:14px;background-color: red;border-radius: 50%;top:0;transform: translate(-20%,-200%);padding-left: 3px;"><h6 style="font-size: 12px;color: white;">3</h6></div></i></button>
+              <button type="button" style="transform: translateY(-13%);"><i class="fa-solid fa-grip-vertical"></i></button>
+            </div>  
+          </div>
+        </div>
+
+        <div class="grid-1">
+            <div class="grid-profile">
+              <div class="rec"><i class="fa fa-user"></i></div>
+              <div class="info">
+                
+                <h4>Maya Mohan</h4>
+                <h5>670702</h5>
+                <h5>Kannur,Kerala</h5><br>
+                <i class="fa-solid fa-calendar-days" style="font-size: 20px;"></i>
+                <i style="color:black;font-weight: 400;">&nbsp;24 July 2002</i><br>
+              </div>
+            </div>
+            <div class="grid-profile">
+              <div class="rec"><i class="fa fa-car"></i></div>
+              <div class="info">
+                 
+              </div>
+            </div>
+            <div class="grid-profile">
+              <div class="rec"><i class="fa fa-map"></i></div>
+              <div class="info">
+
+              </div>
+            </div>
+            <div class="grid-profile">
+              <div class="rec"><i class="fa fa-star"></i></div>
+              <div class="info">
+
+              </div>
+            </div>
+        </div>
+        <div class="grid-2">
+
+        </div>
+        <div class="grid-2">
+
+        </div>
+
+      </div>
+
     </section>
 
     <script src="{% static 'sidebar/script.js' %}"></script>
-   
+    <script src="{% static 'sidebar/jquery-3.7.1.min.js' %}"></script>
+    
+    <!-- <script>
+      let profilePic=document.getElementById("pro-pic");
+      let inputFile = document.getElementById("input-file");
 
+      inputFile.onChange = function(){
+        profilePic.src=URL.createObjectURL(inputFile.files[0]);
+      }
+    </script>    -->
+    <script>
+      // $(document).ready(function(){
+      //   $('#user-button').click(function(){
+      //     $('#user').show();
+      //   });
+      // });
+      function userShow(){
+        document.getElementById("user").style.display="flex";
+        document.getElementById("dashboard").style.display="none";
+      }
+      function dashboardShow(){
+        document.getElementById("dashboard").style.display="block";
+        
+        document.getElementById("user").style.display="none";
+      }
+      
+
+        
+    </script>
    
     
     

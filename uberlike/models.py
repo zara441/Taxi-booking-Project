@@ -1,7 +1,8 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.urls import reverse
-
+from  user_accounts.models import User
+from datetime import date,datetime
 # Create your models here.
 class VehicleStand(models.Model):
     state=models.CharField(max_length=50,null=True)
@@ -39,5 +40,11 @@ class Location(models.Model):
     lat=models.FloatField()
     lng=models.FloatField()
     
-
-    
+class LocationSearch(models.Model):
+      user=models.ForeignKey(User,on_delete=models.SET_NULL,null=True,related_name="user_search_data",unique=False)
+      location = models.ForeignKey(VehicleStand,on_delete=models.SET_NULL,null=True,related_name="location_search_count")
+      search_count=models.IntegerField(default=0) 
+      # count of how many times the user search for particular state,district,city and stand
+      # that city
+      created_at=models.DateTimeField(auto_now_add=True)
+      updated_at=models.DateTimeField(auto_now=True)

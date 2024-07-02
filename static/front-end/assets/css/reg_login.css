@@ -1,0 +1,116 @@
+.account-page{
+    padding: 20px 0;
+    background: radial-gradient(#fff, #FDC590);
+}
+.form-container{
+    
+    width: 437px;
+    height: 1067px;
+    position: relative;
+    text-align: center;
+    padding: 10px 0;
+    margin: auto;
+    overflow: hidden;
+}
+.form-container span{
+    font-weight: bold;
+    padding: 0 10px;
+    color: #555;
+    cursor: pointer;
+    width: 200px;
+    display: inline-block;
+}
+.form-btn{
+    display:inline-block;
+}
+.form-container form{
+    max-width: 500px;
+    padding: 0 20px;
+    position:static;
+    top: 130px;
+    transition: transform 1s;
+}
+form input{
+    width: 100%;
+    height: 30px;
+    margin: 10px 0;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+}
+form .btn{
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+}
+form .btn:focus{
+    outline: none;
+}
+#PLoginForm{
+    left: -300px;
+}
+#VLoginForm{
+    left: 0;
+}
+form a{
+    font-size: 12px;
+}
+#Indicator{
+width: 100px;
+border: none;
+background: #FDC600;
+height: 5px;
+margin-top: 8px;
+transform: translateX(150px);
+transition: transform 1s;
+}
+.error {
+    color:red;
+    display: none;
+    background-color: #d4edda;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    position:relative;
+    margin-bottom: 10px;
+    }
+.success {
+    
+    display: none;
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 10px;
+    }
+
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    border: none;
+}
+.logout-message{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logout-message button{
+   font-size: 20px;
+   font-weight: 500;
+   padding: 20px;
+   border-radius: 10px;
+   background-color: #FDC600;
+   box-shadow: 5px 5px 5px rgb(0,0,0,0.2);
+}
+.logout-message button:hover{
+   background-color: #d4edda;
+}

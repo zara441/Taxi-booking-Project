@@ -6,13 +6,17 @@
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
 }
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background: linear-gradient(0deg,#FDC600,rgb(230, 226, 226));
+}
 .sidebar{
   position: fixed;
   left: 0;
   top: 0;
   height: 100%;
   width: 78px;
-  background: #FDC600;;
+  background: linear-gradient(0deg,#FDC600,rgb(230, 226, 226));
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
@@ -31,7 +35,7 @@
   transition: all 0.5s ease;
 }
 .sidebar .logo-details .logo_name{
-  color: white;
+  color: #11101d;
   font-size: 20px;
   font-weight: 600;
   opacity: 0;
@@ -47,8 +51,6 @@
   right: 0;
   transform: translateY(-50%);
   font-size: 22px;
-  transition: all 0.4s ease;
-  font-size: 23px;
   text-align: center;
   cursor: pointer;
   transition: all 0.5s ease;
@@ -133,6 +135,8 @@
   background: #FFF;
   color: #11101d;
 }
+/* //replacing a with button */
+
 .sidebar li a{
   display: flex;
   height: 100%;
@@ -164,6 +168,9 @@
   transition: all 0.5s ease;
   color: #11101D;
 }
+
+/* //replacing a with button */
+
 .sidebar li i{
   height: 50px;
   line-height: 50px;
@@ -224,14 +231,16 @@
   background: none;
 }
 .home-section{
-  /* position: relative; */
-  /* background: #E4E9F7; */
+  background: linear-gradient(0deg,#FDC600,rgb(230, 226, 226));
+  position: relative;
   min-height: 100vh;
   top: 0;
   left: 78px;
   width: calc(100% - 78px);
   transition: all 0.5s ease;
   z-index: 2;
+  gap:20px;
+  
 }
 .sidebar.open ~ .home-section{
   left: 250px;
@@ -243,6 +252,250 @@
   font-size: 25px;
   font-weight: 500;
   margin: 18px
+}
+.profile{
+  background-color: white;
+  padding:20px;
+  height: 250px;
+  border-radius: 10px;
+  width: 280px;
+  font-weight: 30px;
+  color:#FDC600;
+}
+.sidebar li button{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  background: #11101D;
+  border: none;
+  outline: none;
+}
+.sidebar li button:hover{
+  background: #FFF;
+}
+.sidebar li button .links_name{
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+}
+.sidebar.open li button .links_name{
+  opacity: 1;
+  pointer-events: auto;
+}
+.sidebar li button:hover .links_name,
+.sidebar li button:hover i{
+  transition: all 0.5s ease;
+  color: #11101D;
+}
+.sidebar li button:hover{
+  border: none;
+}
+.profile-info-1{
+  height: 500px;
+  width: 800px;
+  background-color: #d6cba3;
+}
+.profile-info-2{
+  display: flex;
+  height: 650px;
+  width: 400px;
+  padding: 25px;
+  background:linear-gradient(0deg,#FDC600,white,#FDC600);
+  box-shadow: 0px 4px 5px rgb(0,0,0,0.2);
+  border-radius: 5px; 
+  gap:10px;
+  
+}
+.profile-photo{
+  height: 100px;
+  width: 100px;
+  background-color: #FFF;
+  border-radius: 50%;
+}
+.followers{
+  height: 100px;
+  width: 200px;
+  /* background-color: red; */
+  display: flex;
+  gap:20px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  
+}
+/* .profile-photo input{
+  display: none;
+} */
+.profile-photo label,img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.user{
+  background: linear-gradient(0deg,#FDC600,rgb(230, 226, 226));
+  padding:40px;
+  position: relative;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+  display: none;
+  gap:20px;
+  /* flex-wrap: wrap; */
+}
+.dashboard{
+  background: linear-gradient(0deg,#FDC600,rgb(230, 226, 226));
+  /* background-color: #FFF; */
+  padding:20px;
+  padding-right: 0px;
+  position: relative;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+  /* display: flex; */
+  /* gap:20px; */
+  /* flex-wrap: wrap; */
+}
+.dashboard h3{
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  height: 35px;
+}
+.search{
+  height: 60px;
+  /* background-color: red; */
+  width:1000px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  padding-right: 0px;
+  flex-wrap: none;
+}
+.search input{
+  height: 40px;
+  border: none;
+  outline: none;
+  /* box-shadow: 0px 5px 0px rgb(189, 16, 189, 0.8); */
+  /* box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.8); */
+  box-shadow: 0px 5px 0px rgb(158, 88, 224,0.8);
+
+  background: none;
+  /* font-size: 20px; */
+}
+.search button{
+  height: 40px;
+  width: 40px;
+  border: none;
+  outline: none;
+  background: none;
+}
+.search button:hover{
+  background-color: #09a2d5;
+  border-radius: 30px;
+  padding: 2px;
+}
+.search i{
+  font-size: 20px;
+}
+.top-bar{
+  height: 60px;
+  width: 100%;
+  /* background-color: #FFF; */
+  display: flex;
+}
+.notification-bar{
+  height: 40px;
+  width: 200px;
+  /* background-color: aqua; */
+  display: flex;
+  gap:40px;
+  padding: 20px;
+  padding-left: 30px;
+  
+}
+.grid-1{
+  width: 100%;
+  height: 300px;
+  /* background-color: aqua; */
+  padding: 70px 10px 10px 0px;
+  
+  display: flex;
+  gap:20px;
+  
+}
+.grid-profile{
+    height: 200px;
+    width: 300px;
+    background-color: #FDC600;
+    /* background: linear-gradient(0deg,#FDC600,rgb(234, 236, 136)); */
+    display:flex;
+    padding: 20px;
+    box-shadow: 0px 3px 5px rgb(0,0,0,0.2);
+    border-radius: 2px;
+    gap:10px;
+    flex-wrap:wrap;
+}
+.rec{
+  height: 100px;
+  width: 100px;
+  /* background-color: rgb(189, 16, 189); */
+  background-color: rgb(158, 88, 224);
+  /* background: linear-gradient(0deg,#FDC600,rgb(202, 214, 31),rgb(234, 236, 136)); */
+  transform: translateY(-40%);
+  box-shadow: 0px 5px 5px rgb(0,0,0,0.2);
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  color:white;
+}
+.grid-2{
+ 
+  height: 250px;
+  padding: 70px 10px 10px 0px;
+  display: flex;
+  gap:20px;
+  background-color: #FDC600;
+  margin-top: 20px;
+  width: 97%;
+  box-shadow: 0px 3px 5px rgb(0,0,0,0.2);
+  border-radius: 2px;
+   
+}
+.info{
+  /* background-color: blue; */
+  height: 175px;
+  width: 150px;
+  padding:7px 0px 0px 20px;
+  color: rgba(0, 0, 0, 0.542);
+  border-radius: 20px;
+  box-shadow: 0px 2px 2px rgb(0,0,0,0.1);
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.info i{
+  color: blueviolet;
+  /* color:#676363 */
+  /* color:#676363 */
+  
 }
 @media (max-width: 420px) {
   .sidebar li .tooltip{

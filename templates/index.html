@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 {% load static %}
+
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]            #11101d -->
+
+
 
     <head>
         <meta charset="utf-8">
@@ -41,15 +44,15 @@
         
         
         <style>
-            body{
+            /* body{
                 background: linear-gradient(0deg, #e1d037, #803d6f);
-            }
+            } */
             .success-message {
             
                 display: none;
-                /* background-color:#FDC530; */
-                background: linear-gradient(0deg, #e1d037, #803d6f);
-                color: black;
+                background-color:#FDC530;
+                /* background: linear-gradient(0deg, #e1d037, #e7e4e6); */
+                color: rgb(0, 0, 0);
                 padding: 10px;
                 border-radius: 5px;
                 margin-top: 20px;
@@ -58,6 +61,8 @@
                 margin-bottom: 10px;
                 width:600px;
                 margin-left: 450px;
+                font-size: 15px;
+                font-weight: 500;
             }
 
         
@@ -80,16 +85,15 @@
                 padding-left: 80px;
                 
             }
-            .form-inline .form-control, .form-inline .form-control {
-                color:black;
+            .col-sm-3 button:hover{
+                background-color: white;
             }
         </style>
         
     </head>
     <body>
 
-
-
+        
         <div id="preloader">
             <div id="status">&nbsp;</div>
         </div>
@@ -102,7 +106,7 @@
                         <div class="header-half header-call">
                             <p>
                                 <span><i class="pe-7s-call"></i> +1 234 567 7890</span>
-                                <span><i class="pe-7s-mail"></i> your@company.com</span>
+                                <span><i class="pe-7s-mail"></i> uber@like.com</span>
                             </p>
                         </div>
                     </div>
@@ -110,11 +114,11 @@
                         <div class="header-half header-social">
                             <ul class="list-inline">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://twitter.com/explore"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-vine"></i></a></li>
                                 <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                                 <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -147,112 +151,102 @@
                         {% else %}
                         <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('logout')" data-wow-delay="0.45s">Login</button>
                         {% endif %}
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.48s">Submit</button>
+                        <!-- <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.48s">Submit</button> -->
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
+                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200" style="color:black">Home <b class="caret"></b></a>
+                            <ul class="dropdown-menu navbar-nav" style="background-color: blanchedalmond;">
+                                <li style="color:black">
+                                    <a href="{% url 'profile' %}">Your Profile</a>
                                 </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
+                                <li style="color:black">
+                                    <a href="index-3.html">Set Your Current Status</a>
                                 </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
+                                <li style="color:black">
+                                    <a href="index-4.html">search</a>
                                 </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
+                                <li style="color:black">
+                                    <a href="index-5.html">NearBy Stands</a>
+                                </li>
+                                <li style="color:black">
+                                    <a href="index-5.html">Services</a>
+                                </li>
+                                <li style="color:black">
+                                    <a href="index-5.html">Customer Opinion</a>
                                 </li>
 
                             </ul>
                         </li>
 
-                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.3s"><a class="" href="property.html">Property</a></li>
+                        <!-- <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="properties.html">Properties</a></li> -->
+                        <!-- <li class="wow fadeInDown" data-wow-delay="0.3s"><a class="" href="{% url 'profile' %}">Your Profile</a></li> -->
                         <li class="dropdown yamm-fw" data-wow-delay="0.4s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200" style="color:black">Status <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <div class="yamm-content">
+                                    <div class="yamm-content" style="background-color:blanchedalmond;box-sizing: border-box;border-radius: 20px;">
                                         <div class="row">
-                                            <div class="col-sm-3">
-                                                <h5>Home pages</h5>
-                                                <ul>
-                                                    <li>
-                                                        <a href="index.html">Home Style 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-2.html">Home Style 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-3.html">Home Style 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-4.html">Home Style 4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-5.html">Home Style 5</a>
-                                                    </li>
-                                                </ul>
+                                            <form method="post" action="/" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                            <div class="col-sm-3" style="color:black">
+                                                
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="available"> Available
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="no-pending-pay"> No pending Pay
+                                                        </label>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <h5>Pages and blog</h5>
-                                                <ul>
-                                                    <li><a href="blog.html">Blog listing</a>  </li>
-                                                    <li><a href="single.html">Blog Post (full)</a>  </li>
-                                                    <li><a href="single-right.html">Blog Post (Right)</a>  </li>
-                                                    <li><a href="single-left.html">Blog Post (left)</a>  </li>
-                                                    <li><a href="contact.html">Contact style (1)</a> </li>
-                                                    <li><a href="contact-3.html">Contact style (2)</a> </li>
-                                                    <li><a href="contact_3.html">Contact style (3)</a> </li>
-                                                    <li><a href="faq.html">FAQ page</a> </li> 
-                                                    <li><a href="404.html">404 page</a>  </li>
-                                                </ul>
+                                            <div class="col-sm-3" style="color:black">
+                                                
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="not-available"> Not Available
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="checkbox" name="pending-pay">
+                                                        <label>
+                                                            <input type="checkbox" > Pending Pay
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                
                                             </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property</h5>
-                                                <ul>
-                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
-                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
-                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
-                                                </ul>
-
-                                                <h5>Properties list</h5>
-                                                <ul>
-                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
-                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
-                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
-                                                </ul>                                               
+                                            
+                                            <div class="col-sm-3" style="color:black;display: flex;justify-content: flex-start;align-items: flex-end;">
+                                                
+                                                <button type="submit" name="avialable-status" style="background-color: #FDC530;padding: 10px;font-size: 15px;font-weight: 500;box-shadow: 5px 5px 5px rgb(0,0,0,0.2);">Set Status</button>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property process</h5>
-                                                <ul> 
-                                                    <li><a href="submit-property.html">Submit - step 1</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 2</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 3</a> </li> 
-                                                </ul>
+                                            </form>
+                                            <div class="col-sm-3" style="color:black">
                                                 <h5>User account</h5>
-                                                <ul>
-                                                    <li><a href="register.html">Register / login</a>   </li>
-                                                    <li><a href="user-properties.html">Your properties</a>  </li>
-                                                    <li><a href="submit-property.html">Submit property</a>  </li>
-                                                    <li><a href="change-password.html">Change password</a> </li>
-                                                    <li><a href="user-profile.html">Your profile</a>  </li>
+                                                <ul style="color:black">
+                                                    <li><a href="{% url 'login' %}">Register / login</a>   </li>
+                                                   
                                                 </ul>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- /.yamm-content -->
+                                    </div> 
                                 </li>
                             </ul>
                         </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="contact.html">Contact</a></li>
+                        <!-- <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="{% url 'profile' %}" style="color:black">Your Profile</a></li> -->
+                        <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="" style="color:black">Contact</a></li>
                     </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+                </div>
+            </div>
         </nav>
         <!-- End of nav bar -->
 
@@ -269,25 +263,39 @@
             <div class="slider-content">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-                        <h2>property Searching Just Got So Easy</h2>
+                        <h2>Taxi Searching Just Got So Easy</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi deserunt deleniti, ullam commodi sit ipsam laboriosam velit adipisci quibusdam aliquam teneturo!</p>
                         <div class="search-form wow pulse" data-wow-delay="0.8s">
 
-                            <form action="" class="form-inline">
+                            <form action="/" method="post" class=" form-inline">
+                                {% csrf_token %}
                                 <button class="btn  toggle-btn" type="button"><i class="fa fa-bars"></i></button>
 
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="current-place">
+                                <!-- <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="your State" name="state">
+                                </div> -->
+                                <div class="form-group">                                   
+                                    <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" name="state" title="Select your State">
+                                        <option>Kerala</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">                                   
-                                    <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select your city">
+                                    <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" name="city" title="Select your District">
 
                                         <option>Kannur</option>
-                                        <option>Vayanad</option>
-                                        <option>Kollam</option>
-                                        <option>Tvm</option>
+                                        
                                         <option>Eranakulum</option>
-                                        <option>Kozhikode</option>
+                                        
+                                    </select>
+                                </div>
+                                <div class="form-group">                                   
+                                    <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" name="village" title="Select your city">
+
+                                        <option>Kannur</option>
+                                        <option>Mattanur</option>
+                                        <option>Kochi</option>
+                                        <option>Vyttala</option>
+                                        
                                     </select>
                                 </div>
                                 <!-- <div class="form-group">                                     
@@ -299,17 +307,6 @@
 
                                     </select>
                                 </div> -->
-                                <div class="form-group">                                   
-                                    <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select your city">
-
-                                        <option>Kannur</option>
-                                        <option>Vayanad</option>
-                                        <option>Kollam</option>
-                                        <option>Tvm</option>
-                                        <option>Eranakulum</option>
-                                        <option>Kozhikode</option>
-                                    </select>
-                                </div>
                                 <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>
 
                                 <div style="display: none;" class="search-toggle">
@@ -317,56 +314,35 @@
                                     <div class="search-row">   
 
                                         <div class="form-group mar-r-20">
-                                            <label for="price-range">Price range ($):</label>
-                                            <input type="text" class="span2" value="" data-slider-min="0" 
+                                            <label for="price-range">Price range (Rs):</label>
+                                            <input type="text" class="span2" value="" data-slider-min="30" 
                                                    data-slider-max="600" data-slider-step="5" 
-                                                   data-slider-value="[0,450]" id="price-range" ><br />
-                                            <b class="pull-left color">2000$</b> 
-                                            <b class="pull-right color">100000$</b>
+                                                   data-slider-value="[0,450]" id="price-range" name="price"><br />
+                                            <!-- <b class="pull-left color">2000</b> 
+                                            <b class="pull-right color">100000</b> -->
                                         </div>
                                         <!-- End of  -->  
 
                                         <div class="form-group mar-l-20">
-                                            <label for="property-geo">Property geo (m2) :</label>
+                                            <label for="property-geo">Travel Distance (Km) :</label>
                                             <input type="text" class="span2" value="" data-slider-min="0" 
-                                                   data-slider-max="600" data-slider-step="5" 
-                                                   data-slider-value="[50,450]" id="property-geo" ><br />
-                                            <b class="pull-left color">40m</b> 
-                                            <b class="pull-right color">12000m</b>
+                                                   data-slider-max="200" data-slider-step="5" 
+                                                   data-slider-value="[50,450]" id="property-geo" name="distance"><br />
+                                            <!-- <b class="pull-left color">40m</b> 
+                                            <b class="pull-right color">12000m</b> -->
                                         </div>
                                         <!-- End of  --> 
                                     </div>
 
-                                    <div class="search-row">
 
-                                        <div class="form-group mar-r-20">
-                                            <label for="price-range">Min baths :</label>
-                                            <input type="text" class="span2" value="" data-slider-min="0" 
-                                                   data-slider-max="600" data-slider-step="5" 
-                                                   data-slider-value="[250,450]" id="min-baths" ><br />
-                                            <b class="pull-left color">1</b> 
-                                            <b class="pull-right color">120</b>
-                                        </div>
-                                        <!-- End of  --> 
-
-                                        <div class="form-group mar-l-20">
-                                            <label for="property-geo">Min bed :</label>
-                                            <input type="text" class="span2" value="" data-slider-min="0" 
-                                                   data-slider-max="600" data-slider-step="5" 
-                                                   data-slider-value="[250,450]" id="min-bed" ><br />
-                                            <b class="pull-left color">1</b> 
-                                            <b class="pull-right color">120</b>
-                                        </div>
-                                        <!-- End of  --> 
-
-                                    </div>
+                                    
                                     <br>
                                     <div class="search-row">  
 
                                         <div class="form-group">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox"> Fire Place(3100)
+                                                    <input type="checkbox" value="car" name="taxi"> Car
                                                 </label>
                                             </div>
                                         </div>
@@ -375,7 +351,7 @@
                                         <div class="form-group">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox"> Dual Sinks(500)
+                                                    <input type="checkbox" value="taxi" name="taxi"> Taxi
                                                 </label>
                                             </div>
                                         </div>
@@ -384,7 +360,7 @@
                                         <div class="form-group">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox"> Hurricane Shutters(99)
+                                                    <input type="checkbox" value="Lcar" name="taxi"> Laxuary Car
                                                 </label>
                                             </div>
                                         </div>
@@ -396,58 +372,30 @@
                                         <div class="form-group">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox"> Swimming Pool(1190)
+                                                    <input type="checkbox" value="stand" name="taxi"> Nearby Stands
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- End of  -->  
+                                        
 
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> 2 Stories(4600)
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!-- End of  --> 
-
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox"> Emergency Exit(200)
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!-- End of  --> 
                                     </div>                                    
 
-                                    <div class="search-row">  
-
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> Laundry Room(10073)
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!-- End of  -->  
-
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> Jog Path(1503)
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!-- End of  --> 
-
+                                    <!-- <div class="search-row">   
                                         <div class="form-group">
                                             <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox"> 26' Ceilings(1200)
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!-- End of  --> 
                                         <br>
                                         <hr>
@@ -462,64 +410,39 @@
             </div>
         </div>
 
-        <!--MAP FUNCTION-->
-        {% if user.is_authenticated %}
 
-        <div class="map-section">
-        <p style="padding:15px;color: #FDC530;text-align: center;"><b>MAP OF Thillenkery</b></p>
-        <div id="map"></div>
-        <div id="stand" data-value="{{stands}}">{{stands}}</div>
-        </div>
-        
-        
-        {% endif %}
-        
-        <!--MAP FUNCTION-->
-
-        <!-- property area -->
+        <!--Search Result-->
+                
+        {% if search_result%}
+            <!-- property area -->
         <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
-                        <!-- /.feature title -->
+                    <h2 style="color:#FDC530"><b>Search Result</b></h2>
+                    <!-- <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                         /.feature title
                         <h2 style="color:#FDC530"><b>Nearby Stands</b></h2>
                         <p style="color:#FDC530">available stands near your home . </p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="row">
                     <div class="proerty-th">
+                        {% for stand in search_result %}
                         <div class="col-sm-6 col-md-3 p0">
                             <div class="box-two proerty-item">
                                 <div class="item-thumb">
-                                    <a href="property-1.html" ><img src="{% static 'front-end/assets/img/demo/property-1.jpg' %}"></a>
+                                    <a href="{{stand.get_url}}" ><img src="{% static 'front-end/assets/img/demo/property-1.jpg' %}"></a>
                                 </div>
                                 <div class="item-entry overflow">
-                                    <h5 style="color:#FDC530"><a href="property-1.html" >Thillenkery Town</a></h5>
+                                    <h5 style="color:#FDC530"><a href="{{stand.get_url}}" >{{stand.description}}</a></h5>
                                     <div class="dot-hr"></div>
                                     <span class="pull-left"><b style="color:#FDC530">Distance :</b> 120m </span>
-                                    <span class="proerty-price pull-right">RS 80</span>
+                                    <span class="proerty-price pull-right">Rs.{{stand.price}}</span>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="property-2.html" ><img src="{% static 'front-end/assets/img/demo/property-2.jpg' %}"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="property-2.html">Uliyil Town</a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b style="color:#FDC530">Distance :</b> 120m </span>
-                                    <span class="proerty-price pull-right">RS 80</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-        
-
-                       
+                        {% endfor %}
 
                         <div class="col-sm-6 col-md-3 p0">
                             <div class="box-tree more-proerty text-center">
@@ -538,6 +461,171 @@
                 </div>
             </div>
         </div>
+        {% endif %}
+        <!--Search Result-->
+
+
+
+        <!--MAP FUNCTION-->
+        {% if user.is_authenticated and not user.is_superuser %}
+
+        <div class="map-section">
+        <p style="padding:15px;color: #FDC530;text-align: center;"><b>MAP OF YOUR LOCATION</b></p>
+        <!-- <div id="map"></div> -->
+        <div id="stand" hidden>{{stands}}</div>
+        </div>
+        
+        
+        {% endif %}
+        
+        <!--MAP FUNCTION-->
+
+        <!-- Nearby Stands area -->
+        {% if user.is_authenticated %}
+        <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                        <!-- /.feature title -->
+                        <h2 style="color:#FDC530"><b>Nearby Stands</b></h2>
+                        <p style="color:#FDC530">available stands near your home . </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="proerty-th">
+                        {% for stand in stands %}
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-two proerty-item">
+                                <div class="item-thumb">
+                                    <a href="{{stand.get_url}}" ><img src="{% static 'front-end/assets/img/demo/property-1.jpg' %}"></a>
+                                </div>
+                                <div class="item-entry overflow">
+                                    <h5 style="color:#FDC530"><a href="{{stand.get_url}}" >{{stand.description}}</a></h5>
+                                    <div class="dot-hr"></div>
+                                    <span class="pull-left"><b style="color:#FDC530">Distance :</b> 120m </span>
+                                    <span class="proerty-price pull-right">Rs.{{stand.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-tree more-proerty text-center">
+                                <div class="item-tree-icon">
+                                    <i class="fa fa-th"></i>
+                                </div>
+                                <div class="more-entry overflow">
+                                    <h5><a href="property-1.html">CAN'T DECIDE ? </a></h5>
+                                    <h5 class="tree-sub-ttl" style="color:#FDC530">Show all stands</h5>
+                                    <button class="btn border-btn more-black" value="All properties">All STANDS</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+        <!-- Most Searched Stands area -->
+        <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                        <!-- /.feature title -->
+                        <h2 style="color:#FDC530"><b>Most Searched Stands</b></h2>
+                        <p style="color:#FDC530">Most searched stands so far. </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="proerty-th">
+                        {% for st in most_searched_loc %}
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-two proerty-item">
+                                <div class="item-thumb">
+                                    <a href="{{st.get_url}}" ><img src="{% static 'front-end/assets/img/demo/property-1.jpg' %}"></a>
+                                </div>
+                                <div class="item-entry overflow">
+                                    <h5 style="color:#FDC530"><a href="{{st.get_url}}" >{{st.description}}</a></h5>
+                                    <div class="dot-hr"></div>
+                                    <span class="pull-left"><b style="color:#FDC530">Distance :</b> 120m </span>
+                                    <span class="proerty-price pull-right">Rs.{{st.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-tree more-proerty text-center">
+                                <div class="item-tree-icon">
+                                    <i class="fa fa-th"></i>
+                                </div>
+                                <div class="more-entry overflow">
+                                    <h5><a href="property-1.html">CAN'T DECIDE ? </a></h5>
+                                    <h5 class="tree-sub-ttl" style="color:#FDC530">Show all stands</h5>
+                                    <button class="btn border-btn more-black" value="All properties">All STANDS</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+        <!-- Recently Searched Stands area -->
+        <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                        <!-- /.feature title -->
+                        <h2 style="color:#FDC530"><b>Recently Searched Stands</b></h2>
+                        <p style="color:#FDC530">Most Recently searched stands </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="proerty-th">
+                        {% for st in recent_searched_location %}
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-two proerty-item">
+                                <div class="item-thumb">
+                                    <a href="{{st.get_url}}" ><img src="{% static 'front-end/assets/img/demo/property-1.jpg' %}"></a>
+                                </div>
+                                <div class="item-entry overflow">
+                                    <h5 style="color:#FDC530"><a href="{{st.get_url}}" >{{st.description}}</a></h5>
+                                    <div class="dot-hr"></div>
+                                    <span class="pull-left"><b style="color:#FDC530">Distance :</b> 120m </span>
+                                    <span class="proerty-price pull-right">Rs.{{st.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-tree more-proerty text-center">
+                                <div class="item-tree-icon">
+                                    <i class="fa fa-th"></i>
+                                </div>
+                                <div class="more-entry overflow">
+                                    <h5><a href="property-1.html">CAN'T DECIDE ? </a></h5>
+                                    <h5 class="tree-sub-ttl" style="color:#FDC530">Show all stands</h5>
+                                    <button class="btn border-btn more-black" value="All properties">All STANDS</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
 
         <!--Welcome area -#F3F3F3-->
         <div class="Welcome-area">
@@ -562,7 +650,7 @@
                                             <div class="welcome-icon">
                                                 <i class="pe-7s-home pe-4x"></i>
                                             </div>
-                                            <h3>Any property</h3>
+                                            <h3>Any Ride</h3>
                                         </div>
                                     </div>
                                     <div class="col-xs-6 m-padding">
@@ -692,7 +780,7 @@
                                     </div>
                                     <div class="chart" data-percent="12000">
                                         <h2 class="percent" id="counter1">0</h2>
-                                        <h5>Properties in stock</h5>
+                                        <h5>LOcation Mapper</h5>
                                     </div>
                                 </div> 
                             </div> 
@@ -703,7 +791,7 @@
                                     </div>
                                     <div class="chart" data-percent="120">
                                         <h2 class="percent" id="counter2">0</h2>
-                                        <h5>City registered </h5>
+                                        <h5>Satisfying Ride</h5>
                                     </div>
                                 </div> 
                             </div> 
@@ -714,7 +802,7 @@
                                     </div>
                                     <div class="chart" data-percent="5000">
                                         <h2 class="percent"  id="counter3">5000</h2>
-                                        <h5>DEALER BRANCHES</h5>
+                                        <h5>Passenger Priority</h5>
                                     </div>
                                 </div> 
 
@@ -753,11 +841,11 @@
                                 <h4>About us </h4>
                                 <div class="footer-title-line"></div>
 
-                                <img src="{% static 'front-end/assets/img/footer-logo.png' %}" alt="" class="wow pulse" data-wow-delay="1s">
+                                <img src="{% static 'front-end/assets/img/car.jpg' %}" alt="" class="wow pulse" data-wow-delay="1s">
                                 <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
                                 <ul class="footer-adress">
                                     <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                    <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
+                                    <li><i class="pe-7s-mail strong"> </i> uberlike@company.com</li>
                                     <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
                                 </ul>
                             </div>
@@ -778,53 +866,8 @@
                         </div>
                         <div class="col-md-3 col-sm-6 wow fadeInRight animated">
                             <div class="single-footer">
-                                <h4>Last News</h4>
-                                <div class="footer-title-line"></div>
-                                <ul class="footer-blog">
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="{% static 'front-end/assets/img/demo/small-proerty-2.jpg' %}">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="{% static 'front-end/assets/img/demo/small-proerty-2.jpg' %}">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="{% static 'front-end/assets/img/demo/small-proerty-2.jpg' %}">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-
-                                </ul>
+                                
+                                  
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 wow fadeInRight animated">
@@ -917,19 +960,41 @@
                 successMessage.style.display = 'block';
             }
         </script>
-        
-        
-        <script>
+        <!-- <script>
+            let std = "{{stands|escapejs}}";
+            const s = std.replace(/'/g, '"');
+            console.log(s);
+            console.log(typeof s); //str
+
+            const val =JSON.parse(s);
+            console.log("jAKJ---",s);
+            for (const a of val){
+                console.log(a);
+                console.log(a.description);
+                console.log(a.position.lat);
+
+            }
             
+            // {'address': 'India,Keral,Kannur,Uliyil', 'description': 'Uliyil Town Vehicle Stand', 'price': 80.0, 'type': 'car', 'size': 30, 'position': [11.95315, 75.643015]}
+            // string
+            // after parse and replace
+            // {"address": "India,Keral,Kannur,Uliyil","description": "Uliyil Town Vehicle Stand","price": 80.0, "type": "car", "size": 30, "position": [11.95315, 75.643015]}
+            // string
+        </script>  -->
+        
+
+        <script>
+
             async function initMap(){
                 const { Map } = await google.maps.importLibrary("maps");
                 const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
                 const location =  {
-                    lat: 11.93886266574933,
-                    lng: 75.66023330751182,         
+                    lat: center.lat,
+                    lng: center.lng,         
                 };
+                console.log("location:",location)
                 const map = new Map(document.getElementById("map"),{
-                    center:location,zoom:14,mapId:"5615fb9271a6f53d"
+                    center:location,zoom:center.zoom,mapId:"5615fb9271a6f53d"
                 });   
 
                 for (const s of stands){
@@ -941,6 +1006,7 @@
                 }
 
             }
+            
 
             function toggleHighlight(markerView, property) {
             if (markerView.content.classList.contains("highlight")) {
@@ -967,7 +1033,7 @@
                     <div class="features">
                     <div>
                         <i aria-hidden="true" class="fa fa-car fa-lg car" title="bedroom"></i>
-                        <span class="fa-sr-only">car</span>
+                        // <span class="fa-sr-only">car</span>
                         <span>${property.size}</span>
                     </div>
                     </div>
@@ -976,24 +1042,15 @@
             return content;
             }
 
-            const stands  = [
-                {
-                address: 'India,Keral,Kannur,Uliyil',
-                description: 'Uliyil Town Vehicle Stand', 
-                price: 80.0, 
-                type: 'car', 
-                size: 30, 
-                position: {lat: 11.95315, lng: 75.643015}
-                },
-                {
-                address: 'India,Keral,Kannur,Thillenkery',
-                description: 'Thillenkery Town Vehicle Stand', 
-                price: 80.0, 
-                type: 'car', 
-                size: 30, 
-                position: {lat: 11.928190894345782,lng: 75.6654260822946}
-                }
-            ]
+            let a = "{{stands|escapejs}}";
+            const b = a.replace(/'/g, '"');
+            const stands =JSON.parse(b);
+            console.log(stands);
+
+            let d = "{{center|escapejs}}"
+            const e =d.replace(/'/g, '"');
+            const center = JSON.parse(e);
+            console.log(center.lat);
 
         </script>
         
